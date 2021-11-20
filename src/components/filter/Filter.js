@@ -1,16 +1,21 @@
-import { Flex, Text, Box, Button, HStack, FormControl } from "@chakra-ui/react";
+import { Flex, Text, Box, Button, IconButton, Spacer } from "@chakra-ui/react";
 import FilterTypeBox from "./FilterTypeBox";
 import styled from "styled-components";
 import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 
-export default function Filter() {
+export default function Filter({ showFilter, setShowFilter }) {
   const [selectedArea, setSelectedArea] = useState([]);
   const [selectedStage, setSelectedStage] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState();
 
   const updateFilters = () => {
-    console.log({ selectedArea, selectedStage, selectedType });
+    console.log({
+      area: selectedArea,
+      stage: selectedStage,
+      type: selectedType,
+    });
 
     setSelectedFilters({
       area: selectedArea,
@@ -19,10 +24,19 @@ export default function Filter() {
     });
   };
 
-  return (
+  return showFilter ? (
     <FilterBackground>
       <FilterContainer flexDirection="column" w="50px" h="80%">
-        <Text>필터</Text>
+        <Flex>
+          <Text>필터</Text>
+          <Spacer />
+          <IconButton
+            variant="ghost"
+            icon={<FaTimes />}
+            onClick={() => setShowFilter(false)}
+          />
+        </Flex>
+        <IconButton icon={FaTimes} />
         <FilterTypeBox
           type="area"
           options={seoulAreas}
@@ -52,6 +66,8 @@ export default function Filter() {
         </Button>
       </FilterContainer>
     </FilterBackground>
+  ) : (
+    <></>
   );
 }
 
