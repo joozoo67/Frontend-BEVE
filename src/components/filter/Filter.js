@@ -1,6 +1,84 @@
-import { Flex, Text, Box, Button, HStack } from "@chakra-ui/react";
+import { Flex, Text, Box, Button, HStack, FormControl } from "@chakra-ui/react";
 import FilterTypeBox from "./FilterTypeBox";
 import styled from "styled-components";
+import { useState } from "react";
+
+export default function Filter() {
+  const [selectedArea, setSelectedArea] = useState([]);
+  const [selectedStage, setSelectedStage] = useState([]);
+  const [selectedType, setSelectedType] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState();
+
+  const updateFilters = () => {
+    console.log({ selectedArea, selectedStage, selectedType });
+
+    setSelectedFilters({
+      area: selectedArea,
+      stage: selectedStage,
+      type: selectedType,
+    });
+  };
+
+  return (
+    <FilterBackground>
+      <FilterContainer flexDirection="column" w="50px" h="80%">
+        <Text>필터</Text>
+        <FilterTypeBox
+          type="area"
+          options={seoulAreas}
+          selected={selectedArea}
+          setSelected={setSelectedArea}
+        />
+        <FilterTypeBox
+          type="stage"
+          options={vegetarianStages}
+          selected={selectedStage}
+          setSelected={setSelectedStage}
+        />
+        <FilterTypeBox
+          type="type"
+          options={restaurantTypes}
+          selected={selectedType}
+          setSelected={setSelectedType}
+        />
+        <Button
+          variant="solid"
+          size="lg"
+          p="10px 15px"
+          alignSelf="flex-end"
+          onClick={updateFilters}
+        >
+          선택 완료
+        </Button>
+      </FilterContainer>
+    </FilterBackground>
+  );
+}
+
+const FilterContainer = styled.form`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  background-color: white;
+  width: 80%;
+  height: 50%;
+  overflow-y: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const FilterBackground = styled.div`
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+`;
+
+const TypeContainer = styled.div`
+  margin: 15px;
+`;
 
 const seoulAreas = [
   "강서구",
@@ -29,7 +107,7 @@ const seoulAreas = [
   "성동구",
   "광진구",
 ];
-const vegetarianStage = [
+const vegetarianStages = [
   "비건",
   "락토 베지테리언",
   "오보 베지테리언",
@@ -38,37 +116,15 @@ const vegetarianStage = [
   "폴로 베지테리언",
   "플렉시테리언",
 ];
-const restaurantType = ["한식", "분식", "카페", "베이커리"];
-
-export default function Filter() {
-  return (
-    <FilterBackground>
-      <FilterContainer flexDirection="column" w="50px" h="80%">
-        <Text>필터</Text>
-        <FilterTypeBox type="지역" options={seoulAreas} wra />
-        <FilterTypeBox type="채식 단계" options={vegetarianStage} />
-        <FilterTypeBox type="업종" options={restaurantType} />
-      </FilterContainer>
-    </FilterBackground>
-  );
-}
-
-const FilterContainer = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 80%;
-  height: 50%;
-  overflow-y: auto;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const FilterBackground = styled.div`
-  position: fixed;
-  background-color: rgb(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-`;
+const restaurantTypes = [
+  "한식",
+  "분식",
+  "카페",
+  "베이커리",
+  "양식",
+  "술집",
+  "인도/중동",
+  "중식",
+  "동남아",
+  "일식",
+];
