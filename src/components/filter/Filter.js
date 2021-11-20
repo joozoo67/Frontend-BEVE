@@ -1,4 +1,12 @@
-import { Flex, Text, Box, Button, IconButton, Spacer } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Box,
+  Button,
+  IconButton,
+  Spacer,
+  CloseButton,
+} from "@chakra-ui/react";
 import FilterTypeBox from "./FilterTypeBox";
 import styled from "styled-components";
 import { useState } from "react";
@@ -30,11 +38,7 @@ export default function Filter({ showFilter, setShowFilter }) {
         <Flex>
           <Text>필터</Text>
           <Spacer />
-          <IconButton
-            variant="ghost"
-            icon={<FaTimes />}
-            onClick={() => setShowFilter(false)}
-          />
+          <CloseButton onClick={() => setShowFilter(false)} />
         </Flex>
         <IconButton icon={FaTimes} />
         <FilterTypeBox
@@ -88,8 +92,8 @@ const FilterContainer = styled.form`
 const FilterBackground = styled.div`
   position: fixed;
   background-color: rgb(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 const TypeContainer = styled.div`
