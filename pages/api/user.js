@@ -9,6 +9,10 @@ export default function userHandler(req, res) {
         // Get data from your database
         res.status(200).json({ locations, levels, categories })
         break
+      case 'POST':
+            // Get data from your database
+        res.status(200).json({ locations, levels, categories })
+        break
     //   case 'PUT':
     //     // Update or create data in your database
     //     res.status(200).json({ id, name: name || `User ${id}` })
