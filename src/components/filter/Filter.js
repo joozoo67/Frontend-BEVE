@@ -33,11 +33,20 @@ export default function Filter({ isOpen, onClose }) {
     });
   };
 
+  const clearFilter = () => {
+    setSelectedArea([]);
+    setSelectedStage([]);
+    setSelectedType([]);
+  };
+
   return (
     <>
       <Modal
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={() => {
+          onClose();
+          clearFilter();
+        }}
         size="xl"
         scrollBehavior="inside"
       >
@@ -76,6 +85,7 @@ export default function Filter({ isOpen, onClose }) {
                 onClick={() => {
                   onClose();
                   updateFilters();
+                  clearFilter();
                 }}
               >
                 선택 완료
