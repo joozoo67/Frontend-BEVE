@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text, HStack, Button } from "@chakra-ui/react";
+import { Text, Stack, Button } from "@chakra-ui/react";
 
 export default function FilterTypeBox({ type, options }) {
   console.log(options);
@@ -12,13 +12,12 @@ export default function FilterTypeBox({ type, options }) {
   return (
     <TypeContainer>
       <Text>{type}</Text>
-      <HStack spacing="15px" shouldWrapChildren="true" w="90%">
+      <Stack direction="row" spacing="4" wrap="wrap">
         {stack}
-      </HStack>
+      </Stack>
     </TypeContainer>
   );
 }
-
 const TypeContainer = styled.div`
-  width: 70%;
+  margin: 15px;
 `;
