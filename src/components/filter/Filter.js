@@ -1,5 +1,6 @@
 import { Flex, Text, Box, Button, HStack } from "@chakra-ui/react";
 import FilterTypeBox from "./FilterTypeBox";
+import styled from "styled-components";
 
 const seoulAreas = [
   "강서구",
@@ -40,10 +41,17 @@ const vegetarianStage = [
 const restaurantType = ["한식", "분식", "카페", "베이커리"];
 
 export default function Filter() {
-
   return (
-    <Flex flexDirection="column" maxWidth="70%" h="80%">
+    <Flex flexDirection="column" w="50px" h="80%">
       <Text>필터</Text>
+      <FilterTypeBox type="지역" options={seoulAreas} wra/>
+      <FilterTypeBox type="채식 단계" options={vegetarianStage} />
+      <FilterTypeBox type="업종" options={restaurantType} />
     </Flex>
   );
 }
+
+const FilterContainer = styled.div`
+  display: flex;
+  width: 50px;
+`;
