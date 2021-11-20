@@ -7,7 +7,7 @@ export default function FilterTypeBox({
   selected,
   setSelected,
 }) {
-  const onclick = (e) => {
+  const addOption = (e) => {
     if (selected.includes(e.target.value)) {
       setSelected(selected.filter((item) => item !== e.target.value));
     } else {
@@ -22,7 +22,7 @@ export default function FilterTypeBox({
       variant="outline"
       key={index}
       m={1.5}
-      onClick={onclick}
+      onClick={addOption}
     >
       {option}
     </Button>
