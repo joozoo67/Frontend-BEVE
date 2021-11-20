@@ -42,16 +42,33 @@ const restaurantType = ["한식", "분식", "카페", "베이커리"];
 
 export default function Filter() {
   return (
-    <Flex flexDirection="column" w="50px" h="80%">
-      <Text>필터</Text>
-      <FilterTypeBox type="지역" options={seoulAreas} wra/>
-      <FilterTypeBox type="채식 단계" options={vegetarianStage} />
-      <FilterTypeBox type="업종" options={restaurantType} />
-    </Flex>
+    <FilterBackground>
+      <FilterContainer flexDirection="column" w="50px" h="80%">
+        <Text>필터</Text>
+        <FilterTypeBox type="지역" options={seoulAreas} wra />
+        <FilterTypeBox type="채식 단계" options={vegetarianStage} />
+        <FilterTypeBox type="업종" options={restaurantType} />
+      </FilterContainer>
+    </FilterBackground>
   );
 }
 
 const FilterContainer = styled.div`
+  position: fixed;
   display: flex;
-  width: 50px;
+  flex-direction: column;
+  background-color: white;
+  width: 80%;
+  height: 50%;
+  overflow-y: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const FilterBackground = styled.div`
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
 `;
