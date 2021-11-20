@@ -1,24 +1,18 @@
 {
-  "name": "sprinter-frontend-beve",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
+    "mongodb": "^3.5.9",
     "@chakra-ui/react": "^1.7.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^4.1.17",
     "next": "12.0.3",
-    "next-images": "^1.8.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.3"
   }
 }
