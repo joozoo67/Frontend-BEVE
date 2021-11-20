@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { Text, Stack, Button } from "@chakra-ui/react";
+import { Text, Stack, Button, Input, FormControl } from "@chakra-ui/react";
 
 export default function FilterTypeBox({ type, options }) {
-  console.log(options);
-  const stack = options.map((option, index) => (
-    <Button variant="outline" key="index">
+  const options = options.map((option, index) => (
+    <Button variant="outline" key={index} m={1.5}>
       {option}
     </Button>
   ));
@@ -12,12 +11,13 @@ export default function FilterTypeBox({ type, options }) {
   return (
     <TypeContainer>
       <Text>{type}</Text>
-      <Stack direction="row" spacing="4" wrap="wrap">
-        {stack}
-      </Stack>
+      <FormControl direction="row" wrap="wrap">
+        {options}
+      </FormControl>
     </TypeContainer>
   );
 }
+
 const TypeContainer = styled.div`
   margin: 15px;
 `;
