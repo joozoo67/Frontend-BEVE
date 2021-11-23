@@ -8,14 +8,7 @@ export default function NearShopsBox() {
   //불러온 주소를 바탕으로 filter 돌리기
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      position="relative"
-      top="180"
-      px="15%"
-      mx="auto"
-    >
+    <Box display="flex" flexDirection="column" mt="70px" px="15%" mx="auto">
       <Text fontSize="2xl" ml="110px">
         주변 음식점
       </Text>
@@ -23,9 +16,9 @@ export default function NearShopsBox() {
         현 위치: {location}
       </Text>
       <Flex>
-        <Button as={BsChevronCompactLeft} size="lg" />
+        <Button as={BsChevronCompactLeft} size="lg" variant="ghost" />
         <Flex flexDirection="column" w="40%" flexGrow="1" px="10px"></Flex>
-        <Button as={BsChevronCompactRight} size="lg" />
+        <Button as={BsChevronCompactRight} size="lg" variant="ghost" />
       </Flex>
     </Box>
   );
