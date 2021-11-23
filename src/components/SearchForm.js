@@ -13,7 +13,12 @@ import styled from "styled-components";
 import Filter from "./filter/Filter";
 import { useRouter } from "next/router";
 
-export default function MainSearchForm() {
+export default function SearchForm({
+  width,
+  marginTop,
+  inputVariant,
+  iconButtonVariant,
+}) {
   const [searched, setSearched] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
@@ -27,23 +32,26 @@ export default function MainSearchForm() {
   } = useForm();
 
   const onSubmit = (data) => {
+    //axios fetch하고 router.push에 데이터 전달
     const { keywords } = getValues();
     console.log(keywords);
     setSearched(true);
-    router.push("/ResultPage");
-    //axios fetch
-    //검색결과 페이지로 넘어가기
+    router.push({
+      pathname: "/ResultPage",
+      searchValue: { keywords },
+
+    });
   };
   const onEnter = (e, data) => {
     if (e.key === "Enter") onSubmit(data);
   };
 
   return (
-    <Box w="60%" m="40px" mx="auto">
+    <Box w={width} mt={marginTop} mx="auto">
       <FormControl onSubmit={handleSubmit(onSubmit)} display="flex">
         <IconButton
           icon={<FaFilter />}
-          variant="solid"
+          variant={iconButtonVariant}
           bgColor="none"
           mr="5px"
           onClick={onOpen}
@@ -57,13 +65,14 @@ export default function MainSearchForm() {
           })}
           onKeyDown={onEnter}
           errors={errors}
-          variant="filled"
+          variant={inputVariant}
           bgColor="grey.200"
           placeholder="식당, 메뉴, 지역 등을 입력하세요"
         />
         <InputRightElement>
           <IconButton
             aria-label="Search Database"
+            variant="ghost"
             onClick={onSubmit}
             icon={<FaSearch />}
           />
