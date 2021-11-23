@@ -36,9 +36,9 @@ export default function MainSearchForm() {
   };
 
   return (
-    <Box w="60%" my="0" mx="auto">
+    <Box w="60%" mt="40px" mx="auto">
       <FormControl onSubmit={handleSubmit(onSubmit)} display="flex">
-        <IconButton icon={<FaFilter />} onClick={onOpen} />
+        <IconButton icon={<FaFilter />} bgColor="none" mr="5px" onClick={onOpen} />
         <Input
           {...register("keywords", {
             minLength: {
