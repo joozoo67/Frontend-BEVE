@@ -1,6 +1,7 @@
 import { Box, Image, Text, Flex, Spacer } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import DetailedShop from "./DetailedShop";
 
 export default function Card() {
   const shopList = [
@@ -43,6 +44,7 @@ export default function Card() {
 
   return shopList.map((value, index) => (
     <Box boxShadow="md" borderRadius="15" p={5} w="20rem" h="20rem">
+      <DetailedShop key={index} {...value} />
       <Flex>
         <Spacer />
         <Image src={value.images[0]} align="center" />
@@ -53,7 +55,6 @@ export default function Card() {
         <Spacer />
         <Text justifySelf="end">{value.category}</Text>
       </Flex>
-
       <Text>{value.address}</Text>
     </Box>
   ));
