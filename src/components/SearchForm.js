@@ -43,6 +43,7 @@ export default function MainSearchForm() {
       <FormControl onSubmit={handleSubmit(onSubmit)} display="flex">
         <IconButton
           icon={<FaFilter />}
+          variant="solid"
           bgColor="none"
           mr="5px"
           onClick={onOpen}
@@ -57,6 +58,7 @@ export default function MainSearchForm() {
           onKeyDown={onEnter}
           errors={errors}
           variant="filled"
+          bgColor="grey.200"
           placeholder="식당, 메뉴, 지역 등을 입력하세요"
         />
         <InputRightElement>
