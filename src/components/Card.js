@@ -124,6 +124,72 @@ export default function Card() {
         { name: "마살라 파파드", level: "비건" },
       ],
     },
+    {
+      name: "옥루몽",
+      franchise: 0,
+      category: "한식",
+      phone: "02-312-0015",
+      location: "서대문구",
+      address: "서울시 서대문구 연세동문길 18",
+
+      images: ["", ""], // 이미지 주소
+
+      menu: [
+        { name: "팥죽", level: "비건" },
+        { name: "단호박죽", level: "비건" },
+      ],
+    },
+    {
+      name: "투고샐러드",
+      franchise: 0,
+      category: "양식",
+      phone: "02-393-2290",
+      location: "서대문구",
+      address: "서울시 서대문구 연세로 12길 30",
+
+      images: ["", ""], // 이미지 주소
+
+      menu: [
+        { name: "바질 페스토", level: "락토오보/락토" },
+        { name: "모짜렐라 치즈 샐러드", level: "락토오보" },
+        { name: "리코타 치즈 샐러드", level: "락토" },
+        { name: "훈제연어 샐러드", level: "페스코" },
+      ],
+    },
+    {
+      name: "본죽&비빔밥cafe",
+      franchise: 1,
+      category: "한식",
+      phone: "02-312-6288",
+      location: "서대문구",
+      address: "서울시 서대문구 연세로 20",
+
+      images: ["", ""], // 이미지 주소
+
+      menu: [
+        { name: "특전복내장죽", level: "페스코" },
+        { name: "특전복죽", level: "페스코" },
+        { name: "낙지김치죽", level: "페스코" },
+        { name: "녹두죽", level: "비건" },
+      ],
+    },
+    {
+      name: "더브레드블루",
+      franchise: 1,
+      category: "베이커리",
+      phone: "070-4128-0720",
+      location: "마포구",
+      address: "서울 마포구 신촌로12다길 3",
+
+      images: ["", ""], // 이미지 주소
+
+      menu: [
+        { name: "TBB 비건미트 피자", level: "비건" },
+        { name: "레몬스콘", level: "비건" },
+        { name: "맘모스빵", level: "비건" },
+        { name: "초코머핀", level: "비건" },
+      ],
+    },
   ];
   const [loading, setLoading] = useState(false);
   const [shop, setShop] = useState("");
