@@ -11,7 +11,7 @@ export default function Home() {
       <TopBar />
       <Flex flexDirection="column" bgColor="green.200" w="100%" h="45vh" minH="400px" pos="absolute" top="100" pt="20%">
         <Center fontSize="5xl">Explore Seoul with Vegetarian Restaurants</Center>
-        <Center fontsize="3xl">BECOME VEGETARIAN</Center>
+        <Center fontSize="3xl">BECOME VEGETARIAN</Center>
         <MainSearchForm />
       </Flex>
       
