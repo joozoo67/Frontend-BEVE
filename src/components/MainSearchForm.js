@@ -11,10 +11,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import Filter from "./filter/Filter";
+import { useRouter } from "next/router";
 
 export default function MainSearchForm() {
   const [searched, setSearched] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -28,6 +30,7 @@ export default function MainSearchForm() {
     const { keywords } = getValues();
     console.log(keywords);
     setSearched(true);
+    router.push("/ResultPage");
     //axios fetch
     //검색결과 페이지로 넘어가기
   };
@@ -36,9 +39,14 @@ export default function MainSearchForm() {
   };
 
   return (
-    <Box w="60%" mt="40px" mx="auto">
+    <Box w="60%" m="40px" mx="auto">
       <FormControl onSubmit={handleSubmit(onSubmit)} display="flex">
-        <IconButton icon={<FaFilter />} bgColor="none" mr="5px" onClick={onOpen} />
+        <IconButton
+          icon={<FaFilter />}
+          bgColor="none"
+          mr="5px"
+          onClick={onOpen}
+        />
         <Input
           {...register("keywords", {
             minLength: {
