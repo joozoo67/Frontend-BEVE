@@ -1,12 +1,20 @@
-import Card from "../src/components/Card";
-import DetailedShop from "../src/components/DetailedShop";
-import Map from "../src/components/Map";
-import CardGrid from "../src/components/CardGrid";
+import TopBar from "../src/components/TopBar";
+import MainSearchForm from "../src/components/MainSearchForm";
+import Filter from "../src/components/filter/Filter";
+import { Flex, Center } from "@chakra-ui/react";
+import { useState } from "react";
+
 
 export default function Home() {
   return (
-    <div>
-      <CardGrid />
-    </div>
+    <>
+      <TopBar />
+      <Flex flexDirection="column" bgColor="green.200" w="100%" h="45vh" minH="400px" pos="absolute" top="100" pt="20%">
+        <Center fontSize="5xl">Explore Seoul with Vegetarian Restaurants</Center>
+        <Center fontSize="3xl">BECOME VEGETARIAN</Center>
+        <MainSearchForm />
+      </Flex>
+      
+    </>
   );
 }
