@@ -207,18 +207,30 @@ export default function Card() {
   if (loading) return <div>로딩중</div>;
 
   return shopList.map((value, index) => (
-    <Box boxShadow="md" borderRadius="15" p={5} w="20rem" h="20rem">
+    <Flex
+      flexGrow="1"
+      justify="center"
+      flexDirection="column"
+      boxShadow="md"
+      borderRadius="15"
+      w="30%"
+      maxW="20rem"
+      p={5}
+      h="18rem"
+    >
       <Flex>
         <Spacer />
         <Image src={value.images[0]} align="center" />
         <Spacer />
       </Flex>
       <Flex>
-        <Text mb={2}>{value.name}</Text>
+        <Text w="inherit" mb={2}>
+          {value.name}
+        </Text>
         <Spacer />
         <Text justifySelf="end">{value.category}</Text>
       </Flex>
       <Text>{value.address}</Text>
-    </Box>
+    </Flex>
   ));
 }
