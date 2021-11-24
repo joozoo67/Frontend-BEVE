@@ -1,10 +1,19 @@
-import { Flex, Text, Box, Button, IconButton, Spacer } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  Spacer,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import FilterTypeBox from "./FilterTypeBox";
-import styled from "styled-components";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
 
-export default function Filter({ showFilter, setShowFilter }) {
+export default function Filter({ isOpen, onClose }) {
   const [selectedArea, setSelectedArea] = useState([]);
   const [selectedStage, setSelectedStage] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
@@ -24,77 +33,70 @@ export default function Filter({ showFilter, setShowFilter }) {
     });
   };
 
-  return showFilter ? (
-    <FilterBackground>
-      <FilterContainer flexDirection="column" w="50px" h="80%">
-        <Flex>
-          <Text>필터</Text>
-          <Spacer />
-          <IconButton
-            variant="ghost"
-            icon={<FaTimes />}
-            onClick={() => setShowFilter(false)}
-          />
-        </Flex>
-        <IconButton icon={FaTimes} />
-        <FilterTypeBox
-          type="area"
-          options={seoulAreas}
-          selected={selectedArea}
-          setSelected={setSelectedArea}
-        />
-        <FilterTypeBox
-          type="stage"
-          options={vegetarianStages}
-          selected={selectedStage}
-          setSelected={setSelectedStage}
-        />
-        <FilterTypeBox
-          type="type"
-          options={restaurantTypes}
-          selected={selectedType}
-          setSelected={setSelectedType}
-        />
-        <Button
-          variant="solid"
-          size="lg"
-          p="10px 15px"
-          alignSelf="flex-end"
-          onClick={updateFilters}
-        >
-          선택 완료
-        </Button>
-      </FilterContainer>
-    </FilterBackground>
-  ) : (
-    <></>
+  const clearFilter = () => {
+    setSelectedArea([]);
+    setSelectedStage([]);
+    setSelectedType([]);
+  };
+
+  return (
+    <>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          onClose();
+          clearFilter();
+        }}
+        size="xl"
+        scrollBehavior="inside"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <Flex>
+            <ModalHeader flex="1">필터</ModalHeader>
+            <Spacer />
+            <ModalCloseButton />
+          </Flex>
+          <ModalBody>
+            <FilterTypeBox
+              type="area"
+              options={seoulAreas}
+              selected={selectedArea}
+              setSelected={setSelectedArea}
+            />
+            <FilterTypeBox
+              type="stage"
+              options={vegetarianStages}
+              selected={selectedStage}
+              setSelected={setSelectedStage}
+            />
+            <FilterTypeBox
+              type="type"
+              options={restaurantTypes}
+              selected={selectedType}
+              setSelected={setSelectedType}
+            />
+            <ModalFooter>
+              <Button
+                variant="solid"
+                size="lg"
+                p="10px 15px"
+                alignSelf="flex-end"
+                onClick={() => {
+                  onClose();
+                  updateFilters();
+                  clearFilter();
+                }}
+              >
+                선택 완료
+              </Button>
+            </ModalFooter>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }
-
-const FilterContainer = styled.form`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 10px;
-  background-color: white;
-  width: 80%;
-  height: 50%;
-  overflow-y: auto;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const FilterBackground = styled.div`
-  position: fixed;
-  background-color: rgb(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-`;
-
-const TypeContainer = styled.div`
-  margin: 15px;
-`;
 
 const seoulAreas = [
   "강서구",

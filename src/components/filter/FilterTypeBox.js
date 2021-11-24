@@ -7,7 +7,7 @@ export default function FilterTypeBox({
   selected,
   setSelected,
 }) {
-  const onclick = (e) => {
+  const addOption = (e) => {
     if (selected.includes(e.target.value)) {
       setSelected(selected.filter((item) => item !== e.target.value));
     } else {
@@ -15,14 +15,23 @@ export default function FilterTypeBox({
     }
   };
 
-  // const addOption = ()
+  const toggleColor = (e) => {
+    if (e.target.variant === "outline") {
+      e.target.bgColor = "green.500";
+    }
+  };
+
   const stack = options.map((option, index) => (
     <Button
       value={option}
       variant="outline"
+      // color="green.500"
       key={index}
       m={1.5}
-      onClick={onclick}
+      onClick={(e) => {
+        toggleColor(e);
+        addOption(e);
+      }}
     >
       {option}
     </Button>
