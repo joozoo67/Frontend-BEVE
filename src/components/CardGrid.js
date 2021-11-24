@@ -3,8 +3,8 @@ import Card from "./Card";
 
 export default function GridCard() {
   return (
-    <Flex direction="row" wrap="wrap" gap={10}>
+    <Wrap direction="row" spacing={5}>
       <Card />
-    </Flex>
+    </Wrap>
   );
 }

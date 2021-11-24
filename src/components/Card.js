@@ -1,4 +1,13 @@
-import { Box, Image, Text, Flex, Spacer, image } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Text,
+  Flex,
+  Spacer,
+  Wrap,
+  Button,
+  Center,
+} from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -207,30 +216,27 @@ export default function Card() {
   if (loading) return <div>로딩중</div>;
 
   return shopList.map((value, index) => (
-    <Flex
+    <Button
+      display="flex"
       flexGrow="1"
-      justify="center"
       flexDirection="column"
       boxShadow="md"
       borderRadius="15"
       w="30%"
       maxW="20rem"
       p={5}
-      h="18rem"
+      h="20rem"
+      variant="ghost"
     >
+      <Image src={value.images[0]} align="center" mb="20px" />
       <Flex>
-        <Spacer />
-        <Image src={value.images[0]} align="center" />
-        <Spacer />
-      </Flex>
-      <Flex>
-        <Text w="inherit" mb={2}>
+        <Text fontSize="1.3rem" flexGrow="1" mb={2}>
           {value.name}
         </Text>
         <Spacer />
         <Text justifySelf="end">{value.category}</Text>
       </Flex>
-      <Text>{value.address}</Text>
-    </Flex>
+      <Text w="100%">{value.address}</Text>
+    </Button>
   ));
 }
