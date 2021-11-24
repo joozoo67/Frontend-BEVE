@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import Card from "../src/components/Card";
-
-export default function Home() {
-  return (
-    <div>
-      <Card />
-    </div>
-=======
 import TopBar from "../src/components/TopBar";
 import SearchForm from "../src/components/SearchForm";
 import { Flex, Center } from "@chakra-ui/react";
@@ -37,6 +28,5 @@ export default function Home() {
       </Flex>
       <NearShopsBox />
     </>
->>>>>>> yeonhee
   );
 }
