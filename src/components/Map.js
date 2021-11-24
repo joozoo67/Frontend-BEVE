@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 export default function Map() {
   useEffect(() => {
     const container = document.getElementById("mask-map");
