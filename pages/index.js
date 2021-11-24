@@ -1,9 +1,9 @@
-import Card from "../src/components/Card";
+import CardGrid from "../src/components/CardGrid";
 
 export default function Home() {
   return (
     <div>
-      <Card />
+      <CardGrid />
     </div>
   );
 }
