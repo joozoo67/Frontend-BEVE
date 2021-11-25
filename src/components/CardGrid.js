@@ -4,8 +4,9 @@ import Card from "./Card";
 export default function CardGrid() {
   return (
     <Wrap direction="row" spacing={5}>
-
-      <Card />
+      {shopList.map((value, index) => (
+        <Card key="index" value={value} />
+      ))}
     </Wrap>
   );
 }
