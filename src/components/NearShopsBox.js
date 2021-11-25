@@ -1,7 +1,7 @@
 import { Box, Text, Flex, IconButton, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import CardGrid from "./CardGrid";
+import Card from "./Card";
 
 export default function NearShopsBox() {
   const [location, setLocation] = useState("");
@@ -10,10 +10,12 @@ export default function NearShopsBox() {
   const [count, setCount] = useState(0);
 
   const next = () => {
-    setCount(count + 1);
+    if (count == shopList.length - 1) setCount(0);
+    else setCount(count + 1);
   };
   const before = () => {
-    setCount(count - 1);
+    if (count == 0) setCount(shopList.length - 1);
+    else setCount(count - 1);
   };
 
   return (
@@ -32,7 +34,7 @@ export default function NearShopsBox() {
           variant="ghost"
         />
         <Flex flexDirection="column" w="40%" flexGrow="1" px="10px">
-          <CardGrid />
+          <Card value={shopList[count]} />
         </Flex>
         <Button
           as={BsChevronCompactRight}
