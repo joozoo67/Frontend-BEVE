@@ -1,13 +1,14 @@
-import { Grid, Flex, Wrap } from "@chakra-ui/react";
+import { Grid, Flex, Wrap, useBreakpointValue } from "@chakra-ui/react";
 import Card from "./Card";
 
 export default function CardGrid() {
+  const columnNum = useBreakpointValue({ base: 2, lg: 3 });
   return (
-    <Wrap direction="row" spacing={5}>
+    <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
       {shopList.map((value, index) => (
         <Card key="index" value={value} />
       ))}
-    </Wrap>
+    </Grid>
   );
 }
 
