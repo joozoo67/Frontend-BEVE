@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+import { Box, Text, Flex, Spacer } from "@chakra-ui/react";
+import { BiWebcam } from "react-icons/bi";
 
 export default function Map() {
   useEffect(() => {
-    const container = document.getElementById("mask-map");
-    const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3,
-    };
-    const map = new kakao.maps.Map(container, options);
-  }, []);
+    kakao.maps.load(() => {
+      const container = document.getElementById("map"),
+        options = {
+          center: new kakao.maps.LatLng(37.566826, 126.9786567), // 위도, 경도 입력
+          level: 3,
+        };
+      const map = new kakao.maps.Map(container, options); // 지도그리기
+    });
+  });
 
-  return (
-    <div id="mask-map" style={{ height: "100%" }}>
-      {" "}
-    </div>
-  );
+  return <Box id={"map"} w="600px" h="600px"></Box>;
 }
