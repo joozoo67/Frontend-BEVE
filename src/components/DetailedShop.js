@@ -1,7 +1,5 @@
 import { Box, Text, Flex, Spacer, Image } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./Card";
 import food from "../../public/img/food.png";
 
 export default function DetailedShop() {
@@ -23,15 +21,25 @@ export default function DetailedShop() {
           <Text m={1} color="#868e96"></Text>
           <Box m={2}>
             <Text m={1}>{shopList[0].name}</Text>
-            <Box h="17rem" maxW="40rem" overflow-y="scroll">
-              <Text>{shopList[0].category}</Text>
-              <Text>{shopList[0].phone}</Text>
-              <Text>{shopList[0].address}</Text>
+            <Box
+              h="17rem"
+              w="20rem"
+              maxW="40rem"
+              overflow="auto"
+              sx={{
+                "&::-webkit-scrollbar": {
+                  display: "none",
+                },
+              }}
+            >
+              <Text>category: {shopList[0].category}</Text>
+              <Text>phone: {shopList[0].phone}</Text>
+              <Text>address: {shopList[0].address}</Text>
+              <Text>Menu</Text>
               <Text>
                 {Menu(shopList[0].menu).map((menus) => (
                   <Box>
-                    {menus.name}
-                    {menus.level}
+                    {menus.name} {menus.level}
                   </Box>
                 ))}
               </Text>
