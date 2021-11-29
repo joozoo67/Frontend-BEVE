@@ -1,23 +1,29 @@
 {
+  "name": "sprinter-frontend-beve",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "mongodb": "^3.5.9",
-    "@chakra-ui/react": "^1.7.1",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "axios": "^0.24.0",
     "framer-motion": "^4.1.17",
-    "next": "12.0.3",
+    "next": "^12.0.4",
+    "next-images": "^1.8.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.19.5",
-    "react-icons": "^4.3.1"
+    "react-hook-form": "^7.20.2",
+    "react-icons": "^4.3.1",
+    "react-naver-maps": "^0.0.13"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.3",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3"
   }
