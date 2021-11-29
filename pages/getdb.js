@@ -4,7 +4,7 @@ export default function HomePage({ rests }) {
     console.log("data", rests)
   return (
     <div>
-        <title>DB TESIVAL</title>
+        <title>DB TEST </title>
         <p> { rests.text } </p>
     </div>
   );
