@@ -8,19 +8,18 @@ import Vegan from "../src/components/mainPageSections/Vegan";
 import VegetarianStages from "../src/components/mainPageSections/VegetarianStages";
 import NearShops from "../src/components/mainPageSections/NearShops";
 import SiteInfo from "../src/components/mainPageSections/SiteInfo";
+import food from "../public/img/food.png";
 
 export default function Home() {
   return (
     <>
       <TopBar position="absolute" />
       <Image
-        alt="backgroundImage"
         w="100vw"
         h="100vh"
         position="absolute"
         objectFit="cover"
-        zIndex="0"
-        src={mainBackground}
+        src={mainBackground.src}
       />
       <MainSearchForm />
       <Advantages />

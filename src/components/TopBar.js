@@ -13,7 +13,7 @@ export default function TopBar({ position }) {
         _focus="none"
         onClick={() => router.push("/")}
       >
-        <Image boxSize="150px" src={logo} />
+        <Image boxSize="150px" src={logo.src} />
       </Button>
     </Flex>
   );

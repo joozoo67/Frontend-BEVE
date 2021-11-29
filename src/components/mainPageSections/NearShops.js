@@ -22,10 +22,11 @@ export default function NearShops() {
     <Box
       display="flex"
       flexDirection="column"
-      mt="100px"
-      w="90%"
-      mx="auto"
+      m="20px auto 0"
+      p="100px 5%"
       color="white"
+      bgColor="#e6494e"
+      flexGrow={1}
     >
       <Text fontSize="6xl" fontWeight="bold" ml="110px">
         주변 음식점
@@ -41,7 +42,7 @@ export default function NearShops() {
           variant="ghost"
         />
         <Flex flexDirection="column" w="40%" flexGrow="1" px="10px">
-          <Card
+          {/* <Card
             value={shopList[count]}
             layout={{
               cardDirection: "row",
@@ -50,7 +51,7 @@ export default function NearShops() {
               fontSize: "4xl",
               spacer: true,
             }}
-          />
+          /> */}
         </Flex>
         <Button
           as={BsChevronCompactRight}
