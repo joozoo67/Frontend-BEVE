@@ -3,7 +3,8 @@ import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
 
-  const query = req.query.res_id;
+  const query = req.query.stage;
+  console.log(query)
 
   const client = await clientPromise;
   const db = client.db("sample");
