@@ -1,11 +1,11 @@
 import { Flex, Button, Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import logo from "../../public/logo.svg";
-export default function TopBar() {
+export default function TopBar({ position }) {
   const router = useRouter();
 
   return (
-    <Flex color="white" w="100%" h="95px">
+    <Flex w="100%" h="95px" position={position} zIndex="1">
       <Button
         size="150px"
         variant="ghost"
