@@ -20,7 +20,6 @@ export default function DetailedShop() {
           <Text fontSize="2rem" fontWeight="bolder"></Text>
           <Text m={1} color="#868e96"></Text>
           <Box m={2}>
-            <Text m={1}>{shopList[0].name}</Text>
             <Box
               h="17rem"
               w="20rem"
@@ -32,15 +31,18 @@ export default function DetailedShop() {
                 },
               }}
             >
+              <Text m={1}>{shopList[0].name}</Text>
               <Text>category: {shopList[0].category}</Text>
               <Text>phone: {shopList[0].phone}</Text>
               <Text>address: {shopList[0].address}</Text>
               <Text>Menu</Text>
               <Text>
                 {Menu(shopList[0].menu).map((menus) => (
-                  <Box>
-                    {menus.name} {menus.level}
-                  </Box>
+                  <Flex>
+                    <Text>{menus.name}</Text>
+                    <Spacer />
+                    <Text>{menus.level}</Text>
+                  </Flex>
                 ))}
               </Text>
             </Box>
