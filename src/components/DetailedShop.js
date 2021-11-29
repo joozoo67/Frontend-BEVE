@@ -5,9 +5,48 @@ import Card from "./Card";
 import food from "../../public/img/food.png";
 
 export default function DetailedShop() {
+  const Menu = () => {
+    if (shopList[0].menu) {
+      const menuList = [];
+      for (let i = 0; i < shopList[0].menu.length; i++) {
+        menuList.push(shopList[0].menu[i]);
+      }
+      return menuList;
+    }
+  };
+
   return (
-    <Box boxShadow="md" borderRadius="15" p={5} w="20rem" h="20rem">
-      <Image boxShadow="md" borderRadius="1rem" src={food.src} p={1} />
+    <Box>
+      <Flex direction="row" p={20} m="1rem" justify="center">
+        <Box m={3}>
+          <Text fontSize="2rem" fontWeight="bolder"></Text>
+          <Text m={1} color="#868e96"></Text>
+          <Box m={2}>
+            <Text m={1}>{shopList[0].name}</Text>
+            <Box h="17rem" maxW="40rem" overflow-y="scroll">
+              <Text>{shopList[0].category}</Text>
+              <Text>{shopList[0].phone}</Text>
+              <Text>{shopList[0].address}</Text>
+              <Text>
+                {Menu(shopList[0].menu).map((menus) => (
+                  <Box>
+                    {menus.name}
+                    {menus.level}
+                  </Box>
+                ))}
+              </Text>
+            </Box>
+          </Box>
+        </Box>
+        <Image
+          w="30rem"
+          h="30rem"
+          boxShadow="md"
+          borderRadius="1rem"
+          src={food.src}
+          p={1}
+        />
+      </Flex>
     </Box>
   );
 }
