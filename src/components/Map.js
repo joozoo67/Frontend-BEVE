@@ -11,6 +11,11 @@ export default function Map() {
           level: 3,
         };
       const map = new kakao.maps.Map(container, options); // 지도그리기
+      var markerPosition = new kakao.maps.LatLng(37.566826, 126.9786567);
+      var marker = new kakao.maps.Marker({
+        position: markerPosition,
+      });
+      marker.setMap(map);
     });
   });
 
