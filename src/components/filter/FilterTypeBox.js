@@ -17,7 +17,7 @@ export default function FilterTypeBox({
 
   const toggleColor = (e) => {
     if (e.target.variant === "outline") {
-      e.target.bgColor = "green.500";
+      e.target.variant = "filled";
     }
   };
 
@@ -25,7 +25,6 @@ export default function FilterTypeBox({
     <Button
       value={option}
       variant="outline"
-      // color="green.500"
       key={index}
       m={1.5}
       onClick={(e) => {
