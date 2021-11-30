@@ -8,8 +8,6 @@ import {
   useDisclosure,
   InputGroup,
   useToast,
-  Text,
-  toast,
 } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import { VscListSelection } from "react-icons/vsc";
@@ -54,7 +52,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
             <IconButton
               aria-label="Search Database"
               variant="filled"
-              color="green.700"
+              color="green"
               onClick={onSubmit}
               icon={<FaSearch />}
               _hover="none"
@@ -70,7 +68,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
             onKeyDown={onEnter}
             errors={errors}
             variant={inputVariant}
-            bgColor="grey.200"
+            bgColor="white"
             placeholder="식당, 메뉴, 지역 등을 입력하세요"
           />
           {errors.keywords && console.log("error")}
@@ -90,7 +88,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
               icon={<VscListSelection size="30px" />}
               h="50px"
               variant="ghost"
-              color="green.700"
+              color="green"
               mr="10px"
               onClick={onOpen}
             />
