@@ -8,7 +8,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "mongodb": "^3.5.9",
     "@chakra-ui/react": "^1.7.2",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
