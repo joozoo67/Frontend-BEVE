@@ -1,3 +1,5 @@
+<script type="module" src="milsymbol-2.0.0/src/milsymbol.js"></script>
+
 import TopBar from "../src/components/TopBar";
 import SearchForm from "../src/components/SearchForm";
 import { Flex, Center } from "@chakra-ui/react";
