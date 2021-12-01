@@ -23,7 +23,7 @@ export default function Home() {
       />
       <MainSearchForm />
       <Advantages />
-      <Flex h="800px">
+      <Flex>
         <Vegan />
         <NearShops />
       </Flex>

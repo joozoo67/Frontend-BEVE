@@ -18,7 +18,8 @@ export default function VegetarianStages() {
         justifyItems="flex-start"
         w="50%"
         h="50%"
-        p="2rem"
+        pl="3rem"
+        pt="1rem"
       >
         <GridItem>
         <Text color="white" fontSize="3rem" fontWeight="bold">
@@ -40,7 +41,7 @@ export default function VegetarianStages() {
         </GridItem>
 
         <GridItem>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         </GridItem>
 
         <GridItem>
@@ -50,7 +51,7 @@ export default function VegetarianStages() {
 
         <GridItem>
         <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <DairyIcon size="1.5rem" color="#4BB6EC"/>
         </HStack>
         </GridItem>
@@ -62,7 +63,7 @@ export default function VegetarianStages() {
 
         <GridItem>
           <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <EggIcon size="1.5rem" color="yellow"/>
         </HStack>
         </GridItem>
@@ -74,7 +75,7 @@ export default function VegetarianStages() {
 
         <GridItem>
         <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <DairyIcon size="1.5rem" color="#4BB6EC"/>
         <EggIcon size="1.5rem" color="yellow"/>
         </HStack>
@@ -87,7 +88,7 @@ export default function VegetarianStages() {
 
         <GridItem>
         <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <DairyIcon size="1.5rem" color="#4BB6EC"/>
         <EggIcon size="1.5rem" color="yellow"/>
         <FishIcon size="1.5rem" color="391DEE"/>
@@ -101,11 +102,11 @@ export default function VegetarianStages() {
 
         <GridItem>
         <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <DairyIcon size="1.5rem" color="#4BB6EC"/>
         <EggIcon size="1.5rem" color="yellow"/>
         <FishIcon size="1.5rem" color="391DEE"/>
-        <PoultryIcon size="1.5rem"/>
+        <PoultryIcon size="1.5rem" color="FF6A44"/>
         </HStack>
         </GridItem>
 
@@ -116,12 +117,12 @@ export default function VegetarianStages() {
 
         <GridItem>
         <HStack spacing='3rem'>
-        <VegetableIcon size="1.5rem"/>
+        <VegetableIcon size="1.5rem" color="2A7908"/>
         <DairyIcon size="1.5rem" color="#4BB6EC"/>
         <EggIcon size="1.5rem" color="yellow"/>
         <FishIcon size="1.5rem" color="391DEE"/>
-        <PoultryIcon size="1.5rem"/>
-        <MeatIcon size="1.5rem"/>
+        <PoultryIcon size="1.5rem" color="FF6A44"/>
+        <MeatIcon size="1.5rem" color="E61818"/>
         </HStack>
         </GridItem>
 
