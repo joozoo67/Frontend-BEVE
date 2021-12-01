@@ -13,12 +13,17 @@ import {
 import FilterTypeBox from "./FilterTypeBox";
 import { useState } from "react";
 
-export default function Filter({ isOpen, onClose }) {
-  const [selectedArea, setSelectedArea] = useState([]);
-  const [selectedStage, setSelectedStage] = useState([]);
-  const [selectedType, setSelectedType] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState();
-
+export default function Filter({
+  isOpen,
+  onClose,
+  selectedArea,
+  selectedStage,
+  selectedType,
+  setSelectedArea,
+  setSelectedStage,
+  setSelectedType,
+  setSearchQuery,
+}) {
   const updateFilters = () => {
     console.log({
       area: selectedArea,
@@ -26,11 +31,10 @@ export default function Filter({ isOpen, onClose }) {
       type: selectedType,
     });
 
-    setSelectedFilters({
+    setSearchQuery({
       area: selectedArea,
       stage: selectedStage,
       type: selectedType,
-      inputText: "",
     });
   };
 
@@ -78,11 +82,11 @@ export default function Filter({ isOpen, onClose }) {
               selected={selectedType}
               setSelected={setSelectedType}
             />
-            <ModalFooter>
+            <ModalFooter size="md">
               <Button
                 variant="solid"
-                size="lg"
-                p="5rem 7.5rem"
+                size="md"
+                // p="5rem 7.5rem"
                 alignSelf="flex-end"
                 onClick={() => {
                   onClose();

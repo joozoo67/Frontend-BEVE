@@ -18,10 +18,13 @@ import { useRouter } from "next/router";
 import Filter from "./filter/Filter";
 
 export default function SearchForm({ width, marginTop, inputVariant }) {
-  const [searched, setSearched] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const errorToast = useToast();
+  const [selectedArea, setSelectedArea] = useState([]);
+  const [selectedStage, setSelectedStage] = useState([]);
+  const [selectedType, setSelectedType] = useState([]);
+  const [searchQuery, setSearchQuery] = useState({});
 
   const {
     handleSubmit,
@@ -33,12 +36,14 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   const onSubmit = (data) => {
     //axios fetch하고 router.push에 데이터 전달
     const { keywords } = getValues();
-    console.log(keywords);
-    setSearched(true);
-    router.push({
-      pathname: "/ResultPage",
-      searchValue: { keywords },
+    setSearchQuery({
+      ...searchQuery,
+      input: getValues("keywords").replace(" ", "+"),
     });
+    console.log(searchQuery);
+    console.log(selectedArea);
+
+    // router.push("/ResultPage");
   };
   const onEnter = (e, data) => {
     if (e.key === "Enter") onSubmit(data);
@@ -95,7 +100,17 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <Filter isOpen={isOpen} onClose={onClose} />
+      <Filter
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedArea={selectedArea}
+        selectedStage={selectedStage}
+        selectedType={selectedType}
+        setSelectedArea={setSelectedArea}
+        setSelectedStage={setSelectedStage}
+        setSelectedType={setSelectedType}
+        setSearchQuery={setSearchQuery}
+      />
     </Box>
   );
 }
