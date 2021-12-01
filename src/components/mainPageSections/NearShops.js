@@ -41,17 +41,17 @@ export default function NearShops() {
           size="lg"
           variant="ghost"
         />
-        <Flex flexDirection="column" w="40%" flexGrow="1" px="10px">
-          {/* <Card
+        <Flex flexDirection="column" w="40%" flexGrow="0.3" px="10px">
+          <Card
             value={shopList[count]}
             layout={{
               cardDirection: "row",
               textDirection: "column",
               boxShadow: "none",
-              fontSize: "4xl",
+              fontSize: "s4xl",
               spacer: true,
             }}
-          /> */}
+          />
         </Flex>
         <Button
           as={BsChevronCompactRight}
