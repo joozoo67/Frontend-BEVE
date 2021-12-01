@@ -9,10 +9,14 @@ import VegetarianStages from "../src/components/mainPageSections/VegetarianStage
 import NearShops from "../src/components/mainPageSections/NearShops";
 import SiteInfo from "../src/components/mainPageSections/SiteInfo";
 import food from "../public/img/food.png";
+import Map from "../src/components/Map"
+import DetailedShop from "../src/components/DetailedShop";
+import CurrentLocation from "../src/components/CurrentLocation";
 
 export default function Home() {
   return (
     <>
+  <CurrentLocation/>
       <TopBar position="absolute" />
       <Image
         w="100vw"

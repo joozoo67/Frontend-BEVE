@@ -20,5 +20,8 @@ export default function CurrentLocation() {
   //7DC681B4-C835-3C32-96CB-7910D87A6C83
   console.log(usePos);
 
+  var geocoder=new kakao.maps.services.Geocoder();
+  geocoder.coord2Address(usePos.lat,usePos.lon);
+
   return <Box></Box>;
 }
