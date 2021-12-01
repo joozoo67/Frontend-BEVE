@@ -10,15 +10,15 @@ export default function CardGrid() {
 
   if (loading) return <div>로딩중</div>;
 
-  // useEffect(() => {
-  //   const shopCard = async () => {
-  //     setLoading(true);
-  //     const response = await axios.get("");
-  //     setShop(response.data);
-  //     setLoading(false);
-  //   };
-  //   shopCard();
-  // }, []);
+  useEffect(() => {
+    const shopCard = async () => {
+      setLoading(true);
+      const response = await axios.get("");
+      setShop(response.data);
+      setLoading(false);
+    };
+    shopCard();
+  }, []);
 
   return (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>

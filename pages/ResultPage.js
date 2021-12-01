@@ -1,4 +1,5 @@
 import SearchForm from "../src/components/SearchForm";
+import CardGrid from "../src/components/CardGrid"
 import TopBar from "../src/components/TopBar";
 import { Flex, Text } from "@chakra-ui/react";
 
@@ -14,10 +15,8 @@ export default function ResultPage() {
         inputVariant="outline"
         iconButtonVariant="ghost"
       />
-      <Flex flexDirection="column" p="1% 10%">
-        <Text fontSize="3xl" fontWeight="bold" color="green.600" mb="6%">
-          검색된 결과 [{}]
-        </Text>
+      <Flex flexDirection="column">
+        <Text>검색된 결과 [{ }]</Text>
         <CardGrid />
       </Flex>
     </>

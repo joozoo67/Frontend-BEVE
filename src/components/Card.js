@@ -20,9 +20,9 @@ export default function Card({ value }) {
         <Spacer />
         <Text justifySelf="end">{value.category}</Text>
       </Flex>
-      <Text w="100%" justifySelf="flex-start" overflowWrap="break-word">
-        {value.address}
-      </Text>
+      <Flex w="100%">
+      <Text mb={2}>{value.address}</Text>
+      </Flex>
     </Button>
   );
 }

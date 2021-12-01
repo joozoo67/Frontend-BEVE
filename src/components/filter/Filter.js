@@ -82,7 +82,7 @@ export default function Filter({ isOpen, onClose }) {
               <Button
                 variant="solid"
                 size="lg"
-                p="10px 15px"
+                p="5rem 7.5rem"
                 alignSelf="flex-end"
                 onClick={() => {
                   onClose();
