@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Box } from "@chakra-ui/react";
 export default function Map() {
   useEffect(() => {
     kakao.maps.load(() => {
