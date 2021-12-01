@@ -1,6 +1,8 @@
 import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
+import { Box } from "@chakra-ui/react";
+
 export default async function handler(req, res) {
 
   const area_query = req.query.area.replace(/[{|}|']+/g, '');
@@ -29,5 +31,5 @@ export default async function handler(req, res) {
 
   res.json(data);
 
-  return <div>data</div>;
+  return <Box>data</Box>;
 }
