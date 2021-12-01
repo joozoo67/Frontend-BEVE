@@ -1,33 +1,75 @@
-import { Grid, Flex, Wrap, useBreakpointValue } from "@chakra-ui/react";
-import { useEffect, setLoading, useState } from "react";
+import { Box, Text, Flex, IconButton, Button } from "@chakra-ui/react";
+import { useState } from "react";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import Card from "../Card";
 
-import Card from "./Card";
+export default function NearShops() {
+  const [location, setLocation] = useState("");
+  //API 불러서 주소 가져오고, setLocation하기
+  //불러온 주소를 바탕으로 filter 돌리기
+  const [count, setCount] = useState(0);
 
-export default function CardGrid() {
-  const columnNum = useBreakpointValue({ base: 2, lg: 3 });
-  const [loading, setLoading] = useState(false);
-  const [shop, setShop] = useState("");
-
-  if (loading) return <div>로딩중</div>;
-
-  // useEffect(() => {
-  //   const shopCard = async () => {
-  //     setLoading(true);
-  //     const response = await axios.get("");
-  //     setShop(response.data);
-  //     setLoading(false);
-  //   };
-  //   shopCard();
-  // }, []);
+  const next = () => {
+    if (count == shopList.length - 1) setCount(0);
+    else setCount(count + 1);
+  };
+  const before = () => {
+    if (count == 0) setCount(shopList.length - 1);
+    else setCount(count - 1);
+  };
 
   return (
-    <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
-      {shopList.map((value, index) => (
-        <Card key="index" value={value} />
-      ))}
-    </Grid>
+    <Box
+      display="flex"
+      flexDirection="column"
+      m="20px auto 0"
+      p="100px 5%"
+      color="white"
+      bgColor="#e6494e"
+      flexGrow={1}
+    >
+      <Text fontSize="6xl" fontWeight="bold" ml="110px">
+        주변 음식점
+      </Text>
+      <Text fontSize="2xl" color="#f4ecd5" ml="110px" mb="50px">
+        현 위치: {location}
+      </Text>
+      <Flex alignItems="center">
+        <Button
+          as={BsChevronCompactLeft}
+          onClick={before}
+          size="lg"
+          variant="ghost"
+        />
+        <Flex flexDirection="column" w="40%" flexGrow="1" px="10px">
+          {/* <Card
+            value={shopList[count]}
+            layout={{
+              cardDirection: "row",
+              textDirection: "column",
+              boxShadow: "none",
+              fontSize: "4xl",
+              spacer: true,
+            }}
+          /> */}
+        </Flex>
+        <Button
+          as={BsChevronCompactRight}
+          onClick={next}
+          size="lg"
+          variant="ghost"
+        />
+      </Flex>
+    </Box>
   );
 }
+
+const layout = {
+  cardDirection: "",
+  textDirection: "",
+  boxShadow: "",
+  fontSize: "",
+};
 
 //test cases
 const shopList = [

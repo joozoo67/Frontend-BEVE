@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.configPath": "./.prettierrc.json",
+  "prettier.prettierPath": "prettierrc.json",
+  "editor.tabSize": 2
+}

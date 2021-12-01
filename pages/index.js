@@ -1,20 +1,34 @@
-import TopBar from "../src/components/TopBar";
-import MainSearchForm from "../src/components/MainSearchForm";
-import Filter from "../src/components/filter/Filter";
-import { Flex, Center } from "@chakra-ui/react";
-import { useState } from "react";
+import { Flex, Image } from "@chakra-ui/react";
 
+import TopBar from "../src/components/TopBar";
+import mainBackground from "../public/mainBackground.svg";
+import MainSearchForm from "../src/components/mainPageSections/MainSearchForm";
+import Advantages from "../src/components/mainPageSections/Advantages";
+import Vegan from "../src/components/mainPageSections/Vegan";
+import VegetarianStages from "../src/components/mainPageSections/VegetarianStages";
+import NearShops from "../src/components/mainPageSections/NearShops";
+import SiteInfo from "../src/components/mainPageSections/SiteInfo";
+import food from "../public/img/food.png";
 
 export default function Home() {
   return (
     <>
-      <TopBar />
-      <Flex flexDirection="column" bgColor="green.200" w="100%" h="45vh" minH="400px" pos="absolute" top="100" pt="20%">
-        <Center fontSize="5xl">Explore Seoul with Vegetarian Restaurants</Center>
-        <Center fontSize="3xl">BECOME VEGETARIAN</Center>
-        <MainSearchForm />
+      <TopBar position="absolute" />
+      <Image
+        w="100vw"
+        h="100vh"
+        position="absolute"
+        objectFit="cover"
+        src={mainBackground.src}
+      />
+      <MainSearchForm />
+      <Advantages />
+      <Flex h="800px">
+        <Vegan />
+        <NearShops />
       </Flex>
-      
+      <VegetarianStages />
+      <SiteInfo />
     </>
   );
 }
