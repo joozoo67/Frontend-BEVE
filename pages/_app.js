@@ -1,12 +1,13 @@
 import * as React from "react";
 
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
+import Fonts from "../theme/Fonts";
+import theme from "../theme/theme";
 
 export default function App({ Component }) {
-  // 2. Use at the root of your app
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+      <Fonts />
       <Component />
     </ChakraProvider>
   );

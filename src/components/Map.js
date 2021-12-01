@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, Flex, Spacer } from "@chakra-ui/react";
-import { BiWebcam } from "react-icons/bi";
-
 export default function Map() {
   useEffect(() => {
     kakao.maps.load(() => {
