@@ -1,6 +1,9 @@
 {
   "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnType": true,
   "prettier.configPath": "./.prettierrc.json",
-  "prettier.prettierPath": "prettierrc.json",
-  "editor.tabSize": 2
+  "prettier.prettierPath": "prettierrc.json"
 }
