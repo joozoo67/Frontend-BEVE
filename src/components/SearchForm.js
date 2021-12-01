@@ -43,7 +43,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
     console.log(searchQuery);
     console.log(selectedArea);
 
-    // router.push("/ResultPage");
+    router.push("/ResultPage");
   };
   const onEnter = (e, data) => {
     if (e.key === "Enter") onSubmit(data);
@@ -69,12 +69,15 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
             })}
             h="50px"
             px="10px"
+            color="black"
             borderRadius="100"
             onKeyDown={onEnter}
             errors={errors}
             variant={inputVariant}
             bgColor="white"
             placeholder="식당, 메뉴, 지역 등을 입력하세요"
+            _focus={`bgColor="white"`}
+            _hover={`none`}
           />
           {errors.keywords && console.log("error")}
 
