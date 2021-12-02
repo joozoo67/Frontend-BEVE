@@ -10,14 +10,19 @@
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import FilterTypeBox from "./FilterTypeBox";
 import { useState } from "react";
+
+import FilterTypeBox from "./FilterTypeBox";
+import { filterState } from "../../states";
+import { useSetRecoilState } from "recoil";
 
 export default function Filter({ isOpen, onClose }) {
   const [selectedArea, setSelectedArea] = useState([]);
   const [selectedStage, setSelectedStage] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState();
+
+  const setFilter = useSetRecoilState(filterState);
+
 
   const updateFilters = () => {
     console.log({
@@ -26,7 +31,7 @@ export default function Filter({ isOpen, onClose }) {
       type: selectedType,
     });
 
-    setSelectedFilters({
+    setFilter({
       area: selectedArea,
       stage: selectedStage,
       type: selectedType,
