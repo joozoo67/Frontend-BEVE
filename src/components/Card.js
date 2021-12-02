@@ -21,7 +21,7 @@ export default function Card({ value }) {
         <Text justifySelf="end">{value.category}</Text>
       </Flex>
       <Flex w="100%">
-      <Text mb={2}>{value.address}</Text>
+      <Text mb={2}>{value.location.address}</Text>
       </Flex>
     </Button>
   );
