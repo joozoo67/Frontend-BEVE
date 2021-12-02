@@ -17,7 +17,7 @@ import CurrentAddress from "../src/components/location/CurrentAddress";
 export default function Home() {
   return (
     <>
-
+<DetailedShop/>
   <CurrentAddress/>
   <CurrentLocation/>
       <TopBar position="absolute" />
