@@ -13,7 +13,7 @@ export default function Card({ value }) {
       bgColor="white"
       color="black"
     >
-      {/* <Image src={value.images[0]} objectFit="fill" w="100%" h="100%" /> */}
+      <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" w="100%" h="100%" />
 
       <Flex w="100%">
         <Text mb={2}>{value.name}</Text>
