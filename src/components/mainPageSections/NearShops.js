@@ -1,4 +1,4 @@
-import { Box, Text, Flex, IconButton, Button } from "@chakra-ui/react";
+import { Box, Text, Flex, IconButton, Button, Grid } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Card from "../Card";
@@ -32,7 +32,7 @@ export default function NearShops() {
         주변 음식점
       </Text>
       <Text fontSize="2xl" color="#5C5C5C">
-        현 위치: {location}
+        <br />현 위치: {location}
       </Text>
       <Flex alignItems="center" justify="center" mt="1.5rem">
         <Button
@@ -41,20 +41,18 @@ export default function NearShops() {
           size="lg"
           variant="ghost"
         />
-        <Flex flexDirection="column" w="3%" flexGrow="0.3" px="10px">
-          <Card
-            value={shopList[count]}
-            layout={{
-              cardDirection: "row",
-              textDirection: "column",
-              boxShadow: "none",
-              fontSize: "s4xl",
-              spacer: true,
-            }}
-          />
-        </Flex>
+        <Grid
+          templateColumns="repeat(2, 1fr)"
+          justifyItems="center"
+          py="3%"
+          px={{ base: "3%", md: "5%" }}
+        >
+          <Flex flexDirection="column" w="3%" flexGrow="0.3" px="10px">
+            <Text>{shopList[count].name}</Text>
+          </Flex>
+        </Grid>
         <IconButton
-          src={<BsChevronCompactRight />}
+          as={BsChevronCompactRight}
           onClick={next}
           size="lg"
           variant="ghost"
