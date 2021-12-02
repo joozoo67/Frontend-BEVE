@@ -5,7 +5,7 @@ export default function TopBar() {
   const router = useRouter();
 
   return (
-    <Flex color="white" w="100%" h="95px">
+    <Flex color="white" w="100%" h="95px" position="absolute" zIndex="2">
       <Button
         size="150px"
         variant="ghost"
@@ -13,7 +13,7 @@ export default function TopBar() {
         _focus="none"
         onClick={() => router.push("/")}
       >
-        <Image boxSize="150px" src={logo} />
+        <Image boxSize="150px" src={logo.src}/>
       </Button>
     </Flex>
   );

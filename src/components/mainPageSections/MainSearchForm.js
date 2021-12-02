@@ -8,7 +8,6 @@ export default function MainSearchForm() {
       flexDirection="column"
       w="50%"
       h="100vh"
-      minH="500px"
       p="10% 0 8% 4%"
       position="relative"
       zIndex="1"

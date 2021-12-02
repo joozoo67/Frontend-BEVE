@@ -30,7 +30,7 @@ export default function Filter({ isOpen, onClose }) {
       area: selectedArea,
       stage: selectedStage,
       type: selectedType,
-      inputText: ""
+      inputText: "",
     });
   };
 
@@ -52,7 +52,7 @@ export default function Filter({ isOpen, onClose }) {
         scrollBehavior="inside"
         colorScheme="Green"
       >
-        <ModalOverlay />
+        <ModalOverlay color="green" />
         <ModalContent>
           <Flex>
             <ModalHeader flex="1">필터</ModalHeader>
