@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import { queryState, restaurantDataState } from "../states";
 
-export default function useSearchRestauarants() {
+export default function useSearchRestaurants() {
   const [isLoading, setIsLoading] = useState(null);
   const [isError, setIsError] = useState(null);
 
