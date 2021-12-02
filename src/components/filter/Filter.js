@@ -1,4 +1,4 @@
-import {
+   import {
   Flex,
   Button,
   Spacer,
@@ -13,17 +13,12 @@ import {
 import FilterTypeBox from "./FilterTypeBox";
 import { useState } from "react";
 
-export default function Filter({
-  isOpen,
-  onClose,
-  selectedArea,
-  selectedStage,
-  selectedType,
-  setSelectedArea,
-  setSelectedStage,
-  setSelectedType,
-  setSearchQuery,
-}) {
+export default function Filter({ isOpen, onClose }) {
+  const [selectedArea, setSelectedArea] = useState([]);
+  const [selectedStage, setSelectedStage] = useState([]);
+  const [selectedType, setSelectedType] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState();
+
   const updateFilters = () => {
     console.log({
       area: selectedArea,
@@ -31,7 +26,7 @@ export default function Filter({
       type: selectedType,
     });
 
-    setSearchQuery({
+    setSelectedFilters({
       area: selectedArea,
       stage: selectedStage,
       type: selectedType,
@@ -82,11 +77,11 @@ export default function Filter({
               selected={selectedType}
               setSelected={setSelectedType}
             />
-            <ModalFooter size="md">
+            <ModalFooter>
               <Button
                 variant="solid"
-                size="md"
-                // p="5rem 7.5rem"
+                size="lg"
+                p="5rem 7.5rem"
                 alignSelf="flex-end"
                 onClick={() => {
                   onClose();

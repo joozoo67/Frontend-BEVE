@@ -18,13 +18,10 @@ import { useRouter } from "next/router";
 import Filter from "./filter/Filter";
 
 export default function SearchForm({ width, marginTop, inputVariant }) {
+  const [searched, setSearched] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const errorToast = useToast();
-  const [selectedArea, setSelectedArea] = useState([]);
-  const [selectedStage, setSelectedStage] = useState([]);
-  const [selectedType, setSelectedType] = useState([]);
-  const [searchQuery, setSearchQuery] = useState({});
 
   const {
     handleSubmit,
@@ -36,14 +33,12 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   const onSubmit = (data) => {
     //axios fetch하고 router.push에 데이터 전달
     const { keywords } = getValues();
-    setSearchQuery({
-      ...searchQuery,
-      input: getValues("keywords").replace(" ", "+"),
+    console.log(keywords);
+    setSearched(true);
+    router.push({
+      pathname: "/ResultPage",
+      searchValue: { keywords },
     });
-    console.log(searchQuery);
-    console.log(selectedArea);
-
-    router.push("/ResultPage");
   };
   const onEnter = (e, data) => {
     if (e.key === "Enter") onSubmit(data);
@@ -69,15 +64,12 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
             })}
             h="50px"
             px="10px"
-            color="black"
             borderRadius="100"
             onKeyDown={onEnter}
             errors={errors}
             variant={inputVariant}
             bgColor="white"
             placeholder="식당, 메뉴, 지역 등을 입력하세요"
-            _focus={`bgColor="white"`}
-            _hover={`none`}
           />
           {errors.keywords && console.log("error")}
 
@@ -103,17 +95,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <Filter
-        isOpen={isOpen}
-        onClose={onClose}
-        selectedArea={selectedArea}
-        selectedStage={selectedStage}
-        selectedType={selectedType}
-        setSelectedArea={setSelectedArea}
-        setSelectedStage={setSelectedStage}
-        setSelectedType={setSelectedType}
-        setSearchQuery={setSearchQuery}
-      />
+      <Filter isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 }
