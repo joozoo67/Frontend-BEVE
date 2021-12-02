@@ -10,7 +10,6 @@ export default function CardGrid() {
   const { isLoading, isError } = useSearchRestaurants();
   
   const restaurantData = useRecoilValue(restaurantDataState);
-  console.log(restaurantData);
 
   return isLoading === {}? (<Spinner size="lg" />) : (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
