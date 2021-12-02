@@ -1,6 +1,7 @@
 import { Box, Text, Flex, Spacer, Image } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
+import Map from "./Map";
 
 export default function DetailedShop() {
   const Menu = () => {
@@ -21,7 +22,7 @@ export default function DetailedShop() {
           <Text m={1} color="#868e96"></Text>
           <Box m={2}>
             <Box
-              h="17rem"
+              h="28rem"
               w="20rem"
               maxW="40rem"
               overflow="auto"
@@ -45,6 +46,7 @@ export default function DetailedShop() {
                   </Flex>
                 ))}
               </Text>
+              <Map/>
             </Box>
           </Box>
         </Box>

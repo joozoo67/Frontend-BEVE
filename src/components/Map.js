@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 export default function Map() {
+  
   useEffect(() => {
+    
     kakao.maps.load(() => {
-      // const container = document.getElementById("map"),
-      //   options = {
-      //     center: new kakao.maps.LatLng(37.566826, 126.9786567), // 위도, 경도 입력
-      //     level: 3,
-      //   };
-      // const map = new kakao.maps.Map(container, options); // 지도그리기
-
-      // var markerPosition = new kakao.maps.LatLng(37.566826, 126.9786567);
-      // var marker = new kakao.maps.Marker({
-      //   position: markerPosition,
-      // });
-      // marker.setMap(map);
       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
       mapOption = {
           center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-          level: 3 // 지도의 확대 레벨
+          level: 2 // 지도의 확대 레벨
       };  
   
         // 지도를 생성합니다    
@@ -28,7 +18,7 @@ export default function Map() {
         var geocoder = new kakao.maps.services.Geocoder();
         
         // 주소로 좌표를 검색합니다
-        geocoder.addressSearch('경기도 군포시 광정로 119', function(result, status) {
+        geocoder.addressSearch('서울 마포구 신촌로12다길 20', function(result, status) {
         
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
@@ -54,5 +44,5 @@ export default function Map() {
     });
   });
 
-  return <Box id={"map"} w="600px" h="600px"></Box>;
+  return <Box id={"map"} w="20rem" h="20rem"></Box>;
 }
