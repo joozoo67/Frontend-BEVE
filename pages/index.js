@@ -30,8 +30,10 @@ export default function Home() {
       />
       <MainSearchForm />
       <Advantages />
-      <Vegan />
-      <NearShops />
+      <Flex h="800px">
+        <Vegan />
+        <NearShops />
+      </Flex>
       <VegetarianStages />
       <SiteInfo />
     </>
