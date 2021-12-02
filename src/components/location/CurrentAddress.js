@@ -11,7 +11,7 @@ export default function CurrentAddress({usePos}) {
     const geocoder = new kakao.maps.services.Geocoder();
     if(usePos){
       console.log(usePos);
-      geocoder.coord2Address("126.978082","37.565577", function(result, status) {      
+      geocoder.coord2Address(usePos.lon,usePos.lat, function(result, status) {      
         if (status === kakao.maps.services.Status.OK) {
           console.log(result[0]);     
           const newUseLoc = ( result[0].address.region_2depth_name);      
@@ -23,6 +23,7 @@ export default function CurrentAddress({usePos}) {
       setNoLoc(true);    
     }
    },[]);
+
    if(noLoc){
      return(<div></div>);
    }
