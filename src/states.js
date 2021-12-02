@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+
 //test cases
 const shopList = [
   {
@@ -187,13 +188,19 @@ const shopList = [
   },
 ];
 
+const queryState = atom({
+  key: "queryState",
+  default: {}
+})
+
 const restaurantDataState = atom({
   key: "restaurantDataState",
   default: shopList,
 })
-// const nearShopDataState = atom({
-//   key: "nearShopDataState",
-//   default: [],
-// })
 
-export { restaurantDataState };
+const nearShopDataState = atom({
+  key: "nearShopDataState",
+  default: [],
+})
+
+export { queryState, restaurantDataState, nearShopDataState };
