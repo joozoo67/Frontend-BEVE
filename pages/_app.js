@@ -1,17 +1,18 @@
 import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { RecoilRoot } from "recoil";
 
 import Fonts from "../theme/Fonts";
 import theme from "../theme/theme";
 
 export default function App({ Component }) {
   return (
-    // <RecoilRoot>
+    <RecoilRoot>
       <ChakraProvider theme={theme}>
-      <Fonts />
-      <Component />
-    </ChakraProvider>
-    // </RecoilRoot>
+        <Fonts />
+        <Component />
+      </ChakraProvider>
+    </RecoilRoot>
     
   );
 }
