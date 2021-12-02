@@ -28,7 +28,7 @@ export default function FilterTypeBox({
       key={index}
       m={1.5}
       onClick={(e) => {
-        toggleColor(e);
+        styles
         addOption(e);
       }}
     >

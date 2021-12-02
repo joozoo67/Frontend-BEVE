@@ -44,7 +44,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
       console.log(query);
       
       setInputValue("");
-      router.push({
+      router.push({ 
         pathname: "/ResultPage",
       }); 
     }

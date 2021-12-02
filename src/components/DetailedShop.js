@@ -1,18 +1,14 @@
 import { Box, Text, Flex, Spacer, Image, Modal,Button,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
-import { AiOutlineLeft } from "react-icons/ai";
-import { BsChevronCompactRight } from "react-icons/bs";
-import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
-export default function DetailedShop() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+import { VscCircleOutline, VscCircleFilled } from "react-icons/vsc";
+
+export default function DetailedShop({value, isOpen, onOpen, onClose}) {
   const [count, setCount] = useState(0);
 
   const next = () => {
@@ -25,8 +21,6 @@ export default function DetailedShop() {
   };
 
   return (
-    <>
-    <Button onClick={onOpen}>Open Modal</Button>
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay color="green"/>
         <ModalContent>
@@ -86,7 +80,6 @@ export default function DetailedShop() {
           </ModalBody>   
         </ModalContent>
       </Modal>
-    </>
   );
 }
 
