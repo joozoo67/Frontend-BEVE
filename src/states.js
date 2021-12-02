@@ -21,7 +21,7 @@ const queryState = selector({
       area: filter.area,
       stage: filter.stage,
       type: filter.type,
-      inputData: input
+      inputText: input
     }
   }
 })
