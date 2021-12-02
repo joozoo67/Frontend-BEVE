@@ -1,8 +1,16 @@
-import { Box, Text, Flex, Spacer, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Spacer, Image, Modal,Button,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
+import Map from "./Map";
 
 export default function DetailedShop() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const Menu = () => {
     if (shopList[0].menu) {
       const menuList = [];
@@ -14,23 +22,27 @@ export default function DetailedShop() {
   };
 
   return (
-    <Box>
-      <Flex direction="row" p={20} m="1rem" justify="center">
+    <>
+    <Button onClick={onOpen}>Open Modal</Button>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader> 
+          <Image
+          w="30rem"
+          h="30rem"
+          boxShadow="md"
+          borderRadius="1rem"
+          src={food.src}
+          p={1}
+        />
+        </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+          <Flex direction="column" p={20} m="1rem" justify="center">
         <Box m={3}>
           <Text fontSize="2rem" fontWeight="bolder"></Text>
           <Text m={1} color="#868e96"></Text>
-          <Box m={2}>
-            <Box
-              h="17rem"
-              w="20rem"
-              maxW="40rem"
-              overflow="auto"
-              sx={{
-                "&::-webkit-scrollbar": {
-                  display: "none",
-                },
-              }}
-            >
               <Text m={1}>{shopList[0].name}</Text>
               <Text>category: {shopList[0].category}</Text>
               <Text>phone: {shopList[0].phone}</Text>
@@ -45,19 +57,25 @@ export default function DetailedShop() {
                   </Flex>
                 ))}
               </Text>
+              <Flex justify="center">
+              <Map />
+              </Flex>
             </Box>
-          </Box>
-        </Box>
-        <Image
-          w="30rem"
-          h="30rem"
-          boxShadow="md"
-          borderRadius="1rem"
-          src={food.src}
-          p={1}
-        />
+
+
       </Flex>
-    </Box>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost'>Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    
+    </>
   );
 }
 
