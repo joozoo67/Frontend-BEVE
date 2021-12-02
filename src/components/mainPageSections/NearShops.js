@@ -47,8 +47,10 @@ export default function NearShops() {
           py="3%"
           px={{ base: "3%", md: "5%" }}
         >
-          <Flex flexDirection="column" w="3%" flexGrow="0.3" px="10px">
+          <Flex flexDirection="column">
             <Text>{shopList[count].name}</Text>
+            <Text>{shopList[count].category}</Text>
+            <Text>{shopList[count].address}</Text>
           </Flex>
         </Grid>
         <IconButton
