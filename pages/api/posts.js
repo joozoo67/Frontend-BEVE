@@ -2,15 +2,16 @@ import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
+  // /api/posts?area=["강동구", "강서구"]&stage=["비건", "락토"]&type=["중식"]&inputText={} 형식
 
-  const area_query = req.query.area.replace(/[{|}|']+/g, '');
-  const area_query_list = area_query.split(" ");
+  const area_query = req.query.area.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const area_query_list = area_query.split(",");
 
-  const stage_query = req.query.stage.replace(/[{|}|']+/g, '');
-  const stage_query_list = stage_query.split(" ");
+  const stage_query = req.query.stage.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const stage_query_list = stage_query.split(",");
 
-  const type_query = req.query.type.replace(/[{|}|']+/g, '');
-  const type_query_list = type_query.split(" ");
+  const type_query = req.query.type.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const type_query_list = type_query.split(",");
 
   const inputText_query = req.query.inputText;
 
@@ -31,11 +32,10 @@ export default async function handler(req, res) {
     dict_type["$or"] = tmp;
   }
 
-  if (stage_query != '') dict_stage["menu"] = { "$elemMatch": {"level": stage_query} };
+  if (stage_query != '') dict_stage["menu"] = { "$elemMatch": {"level": stage_query_list[stage_query_list.length-1]} };
   // {"menu": { "$elemMatch": {"level": stage_query}}} 형식으로 되어야 함
 
-    dict["$and"] = [ dict_area, dict_type, dict_stage ];
-
+  dict["$and"] = [ dict_area, dict_type, dict_stage ];
 
   if (area_query == '' && type_query == '' && stage_query == '' && inputText_query == '') dict["location.region"] = "오류";
 
