@@ -12,13 +12,14 @@ import food from "../public/img/food.png";
 import Map from "../src/components/Map"
 import DetailedShop from "../src/components/DetailedShop";
 import CurrentLocation from "../src/components/location/CurrentLocation";
-
+import CurrentAddress from "../src/components/location/CurrentAddress";
 
 export default function Home() {
   return (
     <>
 <DetailedShop/>
   <CurrentLocation/>
+  <CurrentAddress/>
       <TopBar position="absolute" />
       <Image
         w="100vw"
