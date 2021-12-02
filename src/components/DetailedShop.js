@@ -24,8 +24,8 @@ export default function DetailedShop() {
   return (
     <>
     <Button onClick={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+      <Modal size="xl" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay color="green"/>
         <ModalContent>
           <ModalHeader> 
           <Image
@@ -34,16 +34,16 @@ export default function DetailedShop() {
           boxShadow="md"
           borderRadius="1rem"
           src={food.src}
-          p={1}
+    
         />
+         <ModalCloseButton />
         </ModalHeader>
-          <ModalCloseButton />
           <ModalBody>
-          <Flex direction="column" p={20} m="1rem" justify="center">
+          <Flex direction="column" justify="center">
         <Box m={3}>
           <Text fontSize="2rem" fontWeight="bolder"></Text>
-          <Text m={1} color="#868e96"></Text>
-              <Text m={1}>{shopList[0].name}</Text>
+          <Text color="#868e96"></Text>
+              <Text>{shopList[0].name}</Text>
               <Text>category: {shopList[0].category}</Text>
               <Text>phone: {shopList[0].phone}</Text>
               <Text>address: {shopList[0].address}</Text>
@@ -57,20 +57,13 @@ export default function DetailedShop() {
                   </Flex>
                 ))}
               </Text>
-              <Flex justify="center">
-              <Map />
-              </Flex>
             </Box>
-
-
       </Flex>
           </ModalBody>
-
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant='ghost'>Secondary Action</Button>
+          <Flex justify="center">
+            <Map />
+          </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>
