@@ -11,7 +11,7 @@ export default function CardGrid() {
   
   const restaurantData = useRecoilValue(restaurantDataState);
 
-  return isLoading === {}? (<Spinner size="lg" />) : (
+  return isLoading === true? (<Spinner size="lg" />) : (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
       {restaurantData.map((value, index) => (
         <Card key="value.address" value={value} />
