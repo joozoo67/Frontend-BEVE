@@ -1,3 +1,4 @@
+/*global kakao*/
 import React, { useState, useEffect } from "react";
 import { Box, Text, Flex, Spacer } from "@chakra-ui/react";
 import CurrentAddress from "./CurrentAddress";
