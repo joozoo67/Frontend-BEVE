@@ -11,11 +11,12 @@ export default function CardGrid() {
   
   const restaurantData = useRecoilValue(restaurantDataState);
 
-  return isLoading === true? (<Spinner size="lg" />) : (
+  return isLoading === true ? (<Spinner size="lg" />) :
+    (restaurantData.length===0? (<Flex>검색된 결과가 없음</Flex>) : (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
       {restaurantData.map((value, index) => (
         <Card key="value.address" value={value} />
       ))}
     </Grid>
-  );
+  ));
 }
