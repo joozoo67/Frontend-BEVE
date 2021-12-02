@@ -7,30 +7,47 @@ import {
   Box,
   useDisclosure,
   InputGroup,
+  useToast
 } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import { VscListSelection } from "react-icons/vsc";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 
 import Filter from "./filter/Filter";
-import { queryState, inputState } from "../states";
+import { queryState, inputState} from "../states";
 
 export default function SearchForm({ width, marginTop, inputVariant }) {
   const [inputValue, setInputValue] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+  const toast = useToast();
 
   const query = useRecoilValue(queryState);
-  const setInput = useSetRecoilState(inputState);
+  const [inputText, setInputText] = useRecoilState(inputState);
+
+  const showToast = () => toast({
+    title: "입력된 검색어가 없습니다.",
+    description: "검색창에 검색어를 입력하시거나 필터를 골라주십시오.",
+    status: "error",
+    duration: 6000,
+    isClosable: true,
+    variant: "solid",
+    position: "top"
+  });
 
   const onSubmit = (e) => {
-    console.log(query);
-    setInputValue("");
-    router.push({
-      pathname: "/ResultPage",
-    });
+    if (query.area === undefined && query.stage === undefined && query.type === undefined && inputText.length === 0) showToast();
+    else {
+      console.log(query);
+      console.log(query);
+      
+      setInputValue("");
+      router.push({
+        pathname: "/ResultPage",
+      }); 
+    }
   };
   const onEnter = (e) => {
     if (e.key === "Enter") {
@@ -39,7 +56,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   };
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    setInput(e.target.value.split(" "));
+    setInputText(e.target.value.split(" "));
   }
 
   return (
