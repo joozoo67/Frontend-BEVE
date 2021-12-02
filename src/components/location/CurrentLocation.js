@@ -4,7 +4,7 @@ import { Box, Text, Flex, Spacer } from "@chakra-ui/react";
 import CurrentAddress from "./CurrentAddress";
 
 export default function CurrentLocation() {
-  const [usePos, setUsePos] = useState({ lat: null, lon: null });
+  const [usePos, setUsePos] = useState({ lat: "37.566449", lon: "126.948428" });
   const [isError, setIsError]=useState(false);
   useEffect(() => {
     if (navigator.geolocation) {

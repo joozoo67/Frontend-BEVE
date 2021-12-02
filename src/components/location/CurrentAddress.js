@@ -14,6 +14,7 @@ export default function CurrentAddress({usePos}) {
       console.log(usePos);
       geocoder.coord2Address(usePos.lon,usePos.lat, function(result, status) {      
         if (status === kakao.maps.services.Status.OK) {
+          console.log(usePos);
           console.log(result[0]);     
           const newUseLoc = ( result[0].address.region_2depth_name);      
                 setUseLoc(newUseLoc);                
