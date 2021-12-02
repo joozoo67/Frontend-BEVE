@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <>
 <DetailedShop/>
-  <CurrentAddress/>
   <CurrentLocation/>
+  <CurrentAddress/>
       <TopBar position="absolute" />
       <Image
         w="100vw"

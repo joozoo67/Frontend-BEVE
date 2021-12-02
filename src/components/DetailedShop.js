@@ -8,99 +8,99 @@ import { Box, Text, Flex, Spacer, Image, Modal,Button,
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
-
+import { AiOutlineLeft } from "react-icons/ai";
+import { BsChevronCompactRight } from "react-icons/bs";
+import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
 export default function DetailedShop() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const Menu = () => {
-    if (shopList[0].menu) {
-      const menuList = [];
-      for (let i = 0; i < shopList[0].menu.length; i++) {
-        menuList.push(shopList[0].menu[i]);
-      }
-      return menuList;
-    }
+  const [count, setCount] = useState(0);
+
+  const next = () => {
+    if (count == 1) setCount(0);
+    else setCount(1);
+  };
+  const before = () => {
+    if (count == 0) setCount(1);
+    else setCount(0);
   };
 
   return (
     <>
     <Button onClick={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+      <Modal size="xl" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay color="green"/>
         <ModalContent>
-          <ModalHeader> 
           <Image
-          w="30rem"
+          w="50rem"
           h="30rem"
           boxShadow="md"
-          borderRadius="1rem"
+          borderRadius="0.2rem"
           src={food.src}
-          p={1}
+          objectFit="fill"
         />
-        </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-          <Flex direction="column" p={20} m="1rem" justify="center">
-        <Box m={3}>
-          <Text fontSize="2rem" fontWeight="bolder"></Text>
-          <Text m={1} color="#868e96"></Text>
-              <Text m={1}>{shopList[0].name}</Text>
-              <Text>category: {shopList[0].category}</Text>
-              <Text>phone: {shopList[0].phone}</Text>
-              <Text>address: {shopList[0].address}</Text>
-              <Text>Menu</Text>
-              <Text>
-                {Menu(shopList[0].menu).map((menus) => (
-                  <Flex>
-                    <Text>{menus.name}</Text>
-                    <Spacer />
-                    <Text>{menus.level}</Text>
-                  </Flex>
-                ))}
-              </Text>
-              <Flex justify="center">
-              <Map />
-              </Flex>
+        <Flex direction="row" justify="center" m={1}>
+         <Button
+         p={1}
+          as={VscCircleFilled}
+          onClick={next}
+          size="sm"
+          variant="ghost"
+          color="#3E603B"
+        />
+         <Button
+         p={1}
+          as={VscCircleOutline}
+          onClick={next}
+          size="sm"
+          variant="ghost"
+          color="#3E603B"
+        />
+        </Flex>
+         <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+         <ModalBody>
+          <Flex direction="column" justify="center">
+          <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{shopList[0].name}</Text>
+            <Box m={2}>
+              <Text m={1}>카테고리 : {shopList[0].category}</Text>
+              <Text  m={1}>전화번호 : {shopList[0].phone}</Text>
+              <Text  m={1}>주소 : {shopList[0].location.address}</Text>
+  
             </Box>
-
-
+            <Box m={2}>
+            <Text m={1}>메뉴<hr/></Text>
+              <Text>
+                    {shopList[0].menu.map((menus, index) => (
+                      <Flex key={index}>
+                        <Text m={0.5}>{menus.name}</Text>
+                        <Spacer />
+                        <Text>{menus.level.join(", ")}</Text>
+                      </Flex>
+                    ))}
+                  </Text>
+            </Box>
+            
+          </Flex>
+      <Flex justify="center" m={4}>
+       <Map />
       </Flex>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant='ghost'>Secondary Action</Button>
-          </ModalFooter>
+          </ModalBody>   
         </ModalContent>
       </Modal>
-    
     </>
   );
 }
 
-const shopList = [
-  {
-    name: "기웃기웃",
-    franchise: 0,
-    category: "카페",
-    phone: "010-5472-9773",
-    location: "마포구",
-    address: "서울 마포구 신촌로12다길 20",
-
-    images: [
-      "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "@#$(#_$",
-    ], // 이미지 주소
-
-    menu: [
-      { name: "카페라떼", level: "락토/비건" },
-      { name: "라벤더라떼", level: "락토/비건" },
-      { name: "플랫화이트", level: "락토/비건" },
-      { name: "쇼콜라", level: "락토" },
-      { name: "피스타&바나나쉐이크", level: "비건" },
-      { name: "비건 피넛버터쿠키", level: "비건" },
-      { name: "비건 두부크림빵", level: "비건" },
-    ],
-  },
+const shopList = 
+[{"_id":"61a52338287fcc53069875ae",
+"name":"발우공양",
+"franchise":0,
+"category":"한식",
+"phone":"02-733-2081"
+,"location":{"region":"종로구","address":"서울 종로구 견지동 71 템플스테이 통합정보센터 5층"}
+,"menu":[{"name":"선식","level":["비건"]},
+{"name":" 원식","level":["비건"]},
+{"name":" 마음식","level":["비건","페스토"]},
+{"name":" 희식","level":["비건"]},
+{"name":" 법식","level":["비건"]}],
+"image":{"data1":"https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api","data2":"https://images.app.goo.gl/6MgRyqeTJzPjqZCv5"}}
 ];
