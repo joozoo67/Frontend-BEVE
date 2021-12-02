@@ -30,19 +30,12 @@ export default async function handler(req, res) {
     for (let t = 0; t < type_query_list.length; t++) tmp.push({"category": type_query_list[t]});
     dict_type["$or"] = tmp;
   }
-  if (stage_query != '') dict["menu"] = { "$elemMatch": {"level": stage_query}};
-  // if (stage_query !=  '') {
-  //  var tmp = []
-  //  for (let s = 0; s < stage_query_list.length; s++) tmp.push({"menu" : { "$elemMatch": {"level": s} } });
-  //  dict_stage["$or"] = tmp;
-  // }
-  // {"menu": { "$elemMatch": {"level": stage_query}}} 형식으로 되어야 함
 
-    console.log(dict_stage);
+  if (stage_query != '') dict_stage["menu"] = { "$elemMatch": {"level": stage_query} };
+  // {"menu": { "$elemMatch": {"level": stage_query}}} 형식으로 되어야 함
 
     dict["$and"] = [ dict_area, dict_type, dict_stage ];
 
-    console.log(dict);
 
   if (area_query == '' && type_query == '' && stage_query == '' && inputText_query == '') dict["location.region"] = "오류";
 
@@ -51,7 +44,6 @@ export default async function handler(req, res) {
 
   const data = await db
     .collection("sam")
-    // .find({$or: [{"location.region": "강동구"}, {"location.region": "강서구"}]})
     .find(dict)
     .toArray();
 
