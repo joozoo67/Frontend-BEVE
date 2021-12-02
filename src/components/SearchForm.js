@@ -96,7 +96,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <Filter isOpen={isOpen} onClose={onClose} />
+      <Filter isOpen={isOpen} onClose={onClose} showToast={showToast} />
     </Box>
   );
 }

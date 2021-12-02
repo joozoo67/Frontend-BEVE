@@ -11,31 +11,35 @@
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 import FilterTypeBox from "./FilterTypeBox";
-import { filterState } from "../../states";
-import { useSetRecoilState } from "recoil";
+import { filterState, inputState } from "../../states";
+import { useRecoilState, useRecoilValue } from "recoil";
 
-export default function Filter({ isOpen, onClose }) {
+export default function Filter({ isOpen, onClose, showToast }) {
   const [selectedArea, setSelectedArea] = useState([]);
   const [selectedStage, setSelectedStage] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
+  const router = useRouter();
 
-  const setFilter = useSetRecoilState(filterState);
+  const [filter, setFilter] = useRecoilState(filterState);
+  const inputText = useRecoilValue(inputState);
 
 
-  const updateFilters = () => {
-    console.log({
-      area: selectedArea,
-      stage: selectedStage,
-      type: selectedType,
-    });
-
+  const updateFilters = (e) => {
     setFilter({
       area: selectedArea,
       stage: selectedStage,
       type: selectedType,
     });
+
+    if (selectedArea.length===0 && selectedStage.length===0 && selectedType.length===0 && inputText.length === 0) showToast();
+    else {
+      router.push({
+        pathname: "/ResultPage",
+      }); 
+    }
   };
 
   const clearFilter = () => {
@@ -90,8 +94,8 @@ export default function Filter({ isOpen, onClose }) {
                 alignSelf="flex-end"
                 onClick={() => {
                   onClose();
-                  updateFilters();
                   clearFilter();
+                  updateFilters();
                 }}
               >
                 선택 완료
