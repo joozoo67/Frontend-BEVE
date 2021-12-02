@@ -8,8 +8,9 @@ import { Box, Text, Flex, Spacer, Image, Modal,Button,
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-
+import { AiOutlineLeft } from "react-icons/ai";
+import { BsChevronCompactRight } from "react-icons/bs";
+import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
 export default function DetailedShop() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [count, setCount] = useState(0);
@@ -23,31 +24,12 @@ export default function DetailedShop() {
     else setCount(0);
   };
 
-  const Menu = () => {
-    if (shopList[0].menu) {
-      const menuList = [];
-      for (let i = 0; i < shopList[0].menu.length; i++) {
-        menuList.push(shopList[0].menu[i]);
-      }
-      return menuList;
-    }
-  };
-
   return (
     <>
     <Button onClick={onOpen}>Open Modal</Button>
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay color="green"/>
         <ModalContent>
-          <Button position="relative"
-          as={BsChevronCompactLeft}
-          onClick={before}
-          size="lg"
-          variant="ghost"
-          position="absolute"
-          top="15rem"
-          left="1rem"
-        />
           <Image
           w="50rem"
           h="30rem"
@@ -56,38 +38,49 @@ export default function DetailedShop() {
           src={food.src}
           objectFit="fill"
         />
-        <Button
-          as={BsChevronCompactRight}
+        <Flex direction="row" justify="center" m={1}>
+         <Button
+         p={1}
+          as={VscCircleFilled}
           onClick={next}
-          size="lg"
+          size="sm"
           variant="ghost"
-          position="absolute"
-          right="1rem"
-          top="15rem"
+          color="#3E603B"
         />
-         <ModalCloseButton />
-       
-          <ModalBody>
+         <Button
+         p={1}
+          as={VscCircleOutline}
+          onClick={next}
+          size="sm"
+          variant="ghost"
+          color="#3E603B"
+        />
+        </Flex>
+         <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+         <ModalBody>
           <Flex direction="column" justify="center">
-            <Box m={3}>
-              <Text fontSize="1.8rem" fontWeight="bolder" m={1}>{shopList[0].name}</Text>
+          <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{shopList[0].name}</Text>
+            <Box m={2}>
               <Text m={1}>카테고리 : {shopList[0].category}</Text>
               <Text  m={1}>전화번호 : {shopList[0].phone}</Text>
               <Text  m={1}>주소 : {shopList[0].location.address}</Text>
-              <Text m={1}>메뉴</Text>
+  
+            </Box>
+            <Box m={2}>
+            <Text m={1}>메뉴<hr/></Text>
               <Text>
-                {Menu(shopList[0].menu).map((menus) => (
-                  <Flex>
-                    <Text m={0.5}>{menus.name}</Text>
-                    <Spacer />
-                    <Text>{menus.level}<Spacer/></Text>
-                  </Flex>
-                ))}
-              </Text>
+                    {shopList[0].menu.map((menus, index) => (
+                      <Flex key={index}>
+                        <Text m={0.5}>{menus.name}</Text>
+                        <Spacer />
+                        <Text>{menus.level.join(", ")}</Text>
+                      </Flex>
+                    ))}
+                  </Text>
             </Box>
             
           </Flex>
-      <Flex justify="center" p={2}>
+      <Flex justify="center" m={4}>
        <Map />
       </Flex>
           </ModalBody>   
