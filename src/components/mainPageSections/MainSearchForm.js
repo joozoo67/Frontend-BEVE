@@ -15,10 +15,10 @@ export default function MainSearchForm() {
       color="#F2E3DC"
     >
       <Spacer />
-      <Text fontSize={{ base: "3rem", md: "4rem" }} fontWeight="bold">
+      <Text fontSize="6xl" fontWeight="bold">
         Explore Seoul with <br /> Vegetarian Restaurants
       </Text>
-      <Text fontSize="4xl" mt="0.5375em">
+      <Text fontSize="4xl" mt="0.5em">
         BECOME VEGETARIAN
       </Text>
       <SearchForm width="100%" marginTop="1.875em" inputVariant="filled" />

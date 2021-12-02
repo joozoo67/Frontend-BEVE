@@ -6,11 +6,14 @@ export default function Vegan() {
     <Grid
       bgColor="#F5EDEA"
       templateColumns="repeat(2, 1fr)"
+      justifyItems="center"
       py="3%"
       px={{ base: "3%", md: "5%" }}
     >
       <Box>
         <Text color="#3E603B" fontSize="4xl" fontWeight="bold">
+          <hr color="green" width="500rem" height="500rem" />
+          <br />
           비건은 채식주의의 한 종류?
         </Text>
         <Text color="#5c5c5c" fontSize="2xl">
@@ -20,7 +23,7 @@ export default function Vegan() {
           일컫는 말입니다.
         </Text>
       </Box>
-      <Image boxSize="20rem" src={vegan1.src} />
+      <Image boxSize="25rem" src={vegan1.src} />
     </Grid>
   );
 }

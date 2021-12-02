@@ -16,8 +16,10 @@ export default function VegetarianStages() {
       flexDir="column"
       py="3%"
       px={{ base: "3%", md: "7%" }}
+      pd="2%"
     >
       <Text color="#3E603B" fontSize="3rem" fontWeight="bold">
+        <hr color="#000000" width="500rem" height="500rem" />
         채식주의 단계?
       </Text>
       <Text color="#5c5c5c" fontSize="1rem">
@@ -36,7 +38,8 @@ export default function VegetarianStages() {
         w="100%"
         h="50%"
         px="0"
-        py="1%"
+        py="3%"
+        gridRowGap={2}
       >
         <GridItem colStart="0" colEnd="0" rowStart="1" rowEnd="1">
           비건

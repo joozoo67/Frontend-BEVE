@@ -18,9 +18,9 @@ export default function SiteInfo() {
           DEVELOPERS&CONTACT
         </Text>
         <Text>YEONHEE JUNG : spig0126@gmail.com</Text>
-        <Text>YOUMIN KIM : spig0126@gmail.com</Text>
-        <Text>JUYEON KIM : spig0126@gmail.com</Text>
-        <Text>JANG YESSEO : spig0126@gmail.com</Text>
+        <Text>YOUMIN KIM : march032-@ewhain.net</Text>
+        <Text>JUYEON KIM : kylakim@ewhain.net</Text>
+        <Text>JANG YESSEO : afterhours@ewhain.net</Text>
       </Flex>
     </Flex>
   );
