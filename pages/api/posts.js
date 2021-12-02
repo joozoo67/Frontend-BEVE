@@ -2,27 +2,60 @@ import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
+  // /api/posts?area=["강동구", "강서구"]&stage=["비건", "락토"]&type=["중식"]&inputText={} 형식
 
-//  const area_query = req.query.area.replace(/[{|}|']+/g, '');
-//  const stage_query = req.query.stage.replace(/[{|}|']+/g, '');
-//  const type_query = req.query.type.replace(/[{|}|']+/g, '');
-//  const inputText_query = req.query.inputText;
-//  // const query_s = {area_query, stage_query, type_query, inputText_query};
-//
-//  var dict = {};
-//
-//  if (area_query !=  '') dict["location.region"] = area_query;
-//  if (stage_query != '') dict["menu.level"] = stage_query;
-//  if (type_query != '') dict["category"] = type_query;
-//
-//  console.log(dict);
+  const area_query = req.query.area.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const area_query_list = area_query.split(",");
+
+  const stage_query = req.query.stage.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const stage_query_list = stage_query.split(",");
+
+  const type_query = req.query.type.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const type_query_list = type_query.split(",");
+
+  const inputText_query = req.query.inputText.replace(/[[|{|}|]|]| |'|"|']+/g, '');
+  const inputText_query_l = inputText_query.replace(",", ' ');
+
+  var dict = {};
+  var dict_area = {};
+  var dict_type = {};
+  var dict_stage = {};
+  var dict_input = {};
+
+  if (area_query !=  '') {
+    var tmp = []
+    for (let a = 0; a < area_query_list.length; a++) tmp.push({"location.region": area_query_list[a]});
+    dict_area["$or"] = tmp;
+  }
+
+  if (type_query !=  '') {
+    var tmp = []
+    for (let t = 0; t < type_query_list.length; t++) tmp.push({"category": type_query_list[t]});
+    dict_type["$or"] = tmp;
+  }
+
+  if (stage_query != '') dict_stage["menu"] = { "$elemMatch": {"level": stage_query_list[stage_query_list.length-1]} };
+  // {"menu": { "$elemMatch": {"level": stage_query}}} 형식으로 되어야 함
+
+  if (inputText_query != '') {
+      dict_input = { $text : { $search : inputText_query_l } };
+  }
+  // { $text : { $search : "java coffee" } 형식
+  console.log(dict_input);
+
+  dict["$and"] = [ dict_area, dict_type, dict_stage, dict_input ];
+
+  if (area_query == '' && type_query == '' && stage_query == '' && inputText_query == '') dict["location.region"] = "오류";
 
   const client = await clientPromise;
   const db = client.db("sample");
 
+  db.collection("sam").createIndex( { "$**" : "text" } );
+
   const data = await db
     .collection("sam")
-    .find( { "location.region": "강동구" } )
+    .find(dict)
+    //.find({ $text : { $search : inputText_query_l } })
     .toArray();
 
   console.log(data);
