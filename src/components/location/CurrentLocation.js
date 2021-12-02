@@ -4,7 +4,7 @@ import CurrentAddress from "./CurrentAddress";
 
 export default function CurrentLocation() {
   const [usePos, setUsePos] = useState({ lat: null, lon: null });
-
+  const [isError, setIsError]=useState(false);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -15,9 +15,13 @@ export default function CurrentLocation() {
         setUsePos(newUserPos);
       });
     } else {
+        setIsError(true);
     }
   }, []);
   console.log(usePos);
+  if(isError){
+    return(<Box>사용자의 위치를 찾을 수 없습니다</Box>);
+  }
 
   return <Box><CurrentAddress usePos={usePos} /></Box>;
 }
