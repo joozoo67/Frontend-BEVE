@@ -1,4 +1,5 @@
 import { atom, selector } from "recoil";
+import axios from "axios";
 
 const filterState = atom({
   key: "filterState",
@@ -27,7 +28,7 @@ const queryState = selector({
 
 const restaurantDataState = atom({
   key: "restaurantDataState",
-  default: {},
+  default: []
 })
 
 const nearShopDataState = atom({
