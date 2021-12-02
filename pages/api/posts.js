@@ -2,8 +2,6 @@ import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
-  // /api/posts?area=["강동구", "강서구"]&stage=["비건", "락토"]&type=["중식"]&inputText={} 형식
-
   const area_query = req.query.area.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const area_query_list = area_query.split(",");
 
