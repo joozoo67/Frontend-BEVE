@@ -4,6 +4,7 @@ import CurrentLocation from "./CurrentLocation";
 import axios from "axios";
 
 export default function CurrentAddress({usePos}) {
+  console.log(usePos);
   const [noLoc, setNoLoc]=useState(false);
   const [useLoc, setUseLoc] = useState("");
   // 주소-좌표 변환 객체를 생성합니다
@@ -16,7 +17,6 @@ export default function CurrentAddress({usePos}) {
           console.log(result[0]);     
           const newUseLoc = ( result[0].address.region_2depth_name);      
                 setUseLoc(newUseLoc);                
-        
               }
             }
     );}else{

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 export default function Map() {
-  const { kakao } = window;
   useEffect(() => {
     
     kakao.maps.load(() => {
@@ -35,5 +34,5 @@ export default function Map() {
     });
   });
 
-  return <Box id={"map"} w="25rem" h="25rem"></Box>;
+  return <Box id={"map"} w="40rem" h="25rem"></Box>;
 }
