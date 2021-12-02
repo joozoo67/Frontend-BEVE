@@ -6,19 +6,19 @@ import Card from "./Card";
 export default function CardGrid() {
   const columnNum = useBreakpointValue({ base: 2, lg: 3 });
   const [loading, setLoading] = useState(false);
-  const [shop, setShop] = useState("");
+
 
   if (loading) return <div>로딩중</div>;
 
-  useEffect(() => {
-    const shopCard = async () => {
-      setLoading(true);
-      const response = await axios.get("");
-      setShop(response.data);
-      setLoading(false);
-    };
-    shopCard();
-  }, []);
+  // useEffect(() => {
+  //   const shopCard = async () => {
+  //     setLoading(true);
+  //     const response = await axios.get("");
+  //     setShop(response.data);
+  //     setLoading(false);
+  //   };
+  //   shopCard();
+  // }, []);
 
   return (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
