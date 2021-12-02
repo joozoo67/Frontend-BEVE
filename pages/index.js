@@ -23,10 +23,8 @@ export default function Home() {
       />
       <MainSearchForm />
       <Advantages />
-      <Flex>
-        <Vegan />
-        <NearShops />
-      </Flex>
+      <Vegan />
+      <NearShops />
       <VegetarianStages />
       <SiteInfo />
     </>

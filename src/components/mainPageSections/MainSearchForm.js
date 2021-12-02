@@ -12,7 +12,7 @@ export default function MainSearchForm() {
       p="10% 0 8% 4%"
       position="relative"
       zIndex="1"
-      color="white"
+      color="#F2E3DC"
     >
       <Spacer />
       <Text fontSize={{ base: "3rem", md: "4rem" }} fontWeight="bold">

@@ -11,17 +11,16 @@ import { FaFish as FishIcon } from "react-icons/fa";
 export default function VegetarianStages() {
   return (
     <Flex
-      bgColor="#7ca83f"
-      color="white"
-      mt="20px"
+      bgColor="#F2E3DC"
+      color="#5c5c5c"
       flexDir="column"
       py="3%"
       px={{ base: "3%", md: "7%" }}
     >
-      <Text color="white" fontSize="3rem" fontWeight="bold">
+      <Text color="#3E603B" fontSize="3rem" fontWeight="bold">
         채식주의 단계?
       </Text>
-      <Text color="black" fontSize="1rem">
+      <Text color="#5c5c5c" fontSize="1rem">
         <br />
         채식주의는 7가지 단계로 세분화되어 있습니다.
         <br />
@@ -127,9 +126,9 @@ export default function VegetarianStages() {
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="7" rowEnd="7">
-          폴로 베지테리언
+          플렉시테리언
           <br />
-          (Pollo-vegetarian)
+          (Flexitarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="7" rowEnd="7">
           <VegetableIcon size="1.5rem" color="2A7908" />

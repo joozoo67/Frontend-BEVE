@@ -22,17 +22,16 @@ export default function NearShops() {
     <Box
       display="flex"
       flexDirection="column"
-      m="20px auto 0"
-      p="100px 5%"
-      color="white"
-      bgColor="#e6494e"
+      py="3%"
+      px={{ base: "3%", md: "5%" }}
+      bgColor="#F3E6DF"
       flexGrow={1}
     >
-      <Text fontSize="6xl" fontWeight="bold" ml="110px">
+      <Text fontSize="4xl" fontWeight="bold" color="#3E603B">
         주변 음식점
       </Text>
-      <Text fontSize="2xl" color="#f4ecd5" ml="110px" mb="50px">
-        현 위치: {location}
+      <Text fontSize="2xl" color="#5C5C5C">
+        <br />현 위치: {location}
       </Text>
       <Flex alignItems="center">
         <Button
@@ -41,7 +40,7 @@ export default function NearShops() {
           size="lg"
           variant="ghost"
         />
-        <Flex flexDirection="column" w="40%" flexGrow="0.3" px="10px">
+        <Flex flexDirection="column" w="10%" flexGrow="0.3" px="10px">
           <Card
             value={shopList[count]}
             layout={{
