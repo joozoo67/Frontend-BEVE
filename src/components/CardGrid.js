@@ -1,29 +1,21 @@
-import { Grid, Flex, Wrap, useBreakpointValue } from "@chakra-ui/react";
-import { useEffect, setLoading, useState } from "react";
+import { Grid, Flex, Spinner, useBreakpointValue } from "@chakra-ui/react";
+import { useRecoilValue } from "recoil";
 
 import Card from "./Card";
+import { restaurantDataState } from "../states";
+import useSearchRestaurants from "../library/useSearchRestaurant";
 
 export default function CardGrid() {
   const columnNum = useBreakpointValue({ base: 2, lg: 3 });
-  const [loading, setLoading] = useState(false);
+  const { isLoading, isError } = useSearchRestaurants();
+  
+  const restaurantData = useRecoilValue(restaurantDataState);
+  console.log(restaurantData);
 
-
-  if (loading) return <div>로딩중</div>;
-
-  // useEffect(() => {
-  //   const shopCard = async () => {
-  //     setLoading(true);
-  //     const response = await axios.get("");
-  //     setShop(response.data);
-  //     setLoading(false);
-  //   };
-  //   shopCard();
-  // }, []);
-
-  return (
+  return isLoading === {}? (<Spinner size="lg" />) : (
     <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
-      {shopList.map((value, index) => (
-        <Card key="index" value={value} />
+      {restaurantData.map((value, index) => (
+        <Card key="value.address" value={value} />
       ))}
     </Grid>
   );
