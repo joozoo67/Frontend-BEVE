@@ -3,7 +3,7 @@ import TopBar from "../TopBar";
 
 export default function SiteInfo() {
   return (
-    <Flex bgColor="#243a1a" h="200px" color="white" p="30px" mt="20px">
+    <Flex bgColor="#3E603B" h="200px" color="#F2E3DC" p="30px">
       <TopBar position="absolute" />
       <Spacer />
       <Flex flexDir="column" alignItems="center" ml="50px">
@@ -18,9 +18,9 @@ export default function SiteInfo() {
           DEVELOPERS&CONTACT
         </Text>
         <Text>YEONHEE JUNG : spig0126@gmail.com</Text>
-        <Text>YOUMIN KIM : spig0126@gmail.com</Text>
-        <Text>JUYEON KIM : spig0126@gmail.com</Text>
-        <Text>JANG YESSEO : spig0126@gmail.com</Text>
+        <Text>YOUMIN KIM : march032-@ewhain.net</Text>
+        <Text>JUYEON KIM : kylakim@ewhain.net</Text>
+        <Text>JANG YESSEO : afterhours@ewhain.net</Text>
       </Flex>
     </Flex>
   );

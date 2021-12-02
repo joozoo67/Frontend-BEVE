@@ -10,14 +10,26 @@ import { FaFish as FishIcon } from "react-icons/fa";
 
 export default function VegetarianStages() {
   return (
-    <Flex bgColor="#7ca83f" color="white" mt="20px" flexDir="column" py="5%" px={{base: "3%", md:"10%"}}>
-      <Text color="white" fontSize="3rem" fontWeight="bold">
+    <Flex
+      bgColor="#F2E3DC"
+      color="#5c5c5c"
+      flexDir="column"
+      py="3%"
+      px={{ base: "3%", md: "7%" }}
+      pd="2%"
+    >
+      <Text color="#3E603B" fontSize="3rem" fontWeight="bold">
+        <hr color="#000000" width="500rem" height="500rem" />
         채식주의 단계?
       </Text>
-      <Text color="black" fontSize="1rem">
-        채식주의는 7가지 단계로 세분화되어 있습니다.<br/> 
-        그 기준은 유제품, 동물의 알, 물고기, 하얀 고기, 붉은 고기 등 동물성 음식의 종류에 따라 나뉩니다.
-        <br/>(색칠은 섭취 가능을 뜻합니다) 
+      <Text color="#5c5c5c" fontSize="1rem">
+        <br />
+        채식주의는 7가지 단계로 세분화되어 있습니다.
+        <br />
+        그 기준은 유제품, 동물의 알, 물고기, 하얀 고기, 붉은 고기 등 동물성
+        음식의 종류에 따라 나뉩니다.
+        <br />
+        (색칠은 섭취 가능을 뜻합니다)
       </Text>
       <Grid
         templateRows="repeat(8, 1fr)"
@@ -25,103 +37,119 @@ export default function VegetarianStages() {
         justifyItems="flex-start"
         w="100%"
         h="50%"
-        p="0"
+        px="0"
+        py="3%"
+        gridRowGap={2}
       >
         <GridItem colStart="0" colEnd="0" rowStart="1" rowEnd="1">
-          비건<br />(Vegan)
+          비건
+          <br />
+          (Vegan)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="1" rowEnd="1">
-          <VegetableIcon  color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
 
         <GridItem colStart="0" colEnd="0" rowStart="2" rowEnd="2">
-          락토 베지테리언<br />(Lacto vegetarian)
+          락토 베지테리언
+          <br />
+          (Lacto vegetarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="2" rowEnd="2">
-          <VegetableIcon   color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="2" rowEnd="2">
-          <DairyIcon  color="#4BB6EC"/>
+          <DairyIcon size="1.5rem" color="#4BB6EC" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="3" rowEnd="3">
-          오보 베지테리언<br />(Ovo vegetarian)
+          오보 베지테리언
+          <br />
+          (Ovo vegetarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="3" rowEnd="3">
-          <VegetableIcon color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="3" rowEnd="3">
-          <EggIcon  color="yellow"/> 
+          <EggIcon size="1.5rem" color="yellow" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="4" rowEnd="4">
-          락토 오보 베지테리언<br />(Lacto-ovo vegetarian)
+          락토 오보 베지테리언
+          <br />
+          (Lacto-ovo vegetarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="4" rowEnd="4">
-          <VegetableIcon  color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="4" rowEnd="4">
-          <DairyIcon  color="#4BB6EC"/>
+          <DairyIcon size="1.5rem" color="#4BB6EC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="4" rowEnd="4">
-          <EggIcon  color="yellow"/> 
+          <EggIcon size="1.5rem" color="yellow" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="5" rowEnd="5">
-          페스코 베지테리언<br />(Pesco-vegetarian)
+          페스코 베지테리언
+          <br />
+          (Pesco-vegetarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="5" rowEnd="5">
-          <VegetableIcon  color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="5" rowEnd="5">
-          <DairyIcon  color="#4BB6EC"/>
+          <DairyIcon size="1.5rem" color="#4BB6EC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="5" rowEnd="5">
-          <EggIcon  color="yellow"/> 
+          <EggIcon size="1.5rem" color="yellow" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="5" rowEnd="5">
-          <FishIcon  color="391DEE"/>
+          <FishIcon size="1.5rem" color="391DEE" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="6" rowEnd="6">
-          폴로 베지테리언<br />(Pollo-vegetarian)
+          폴로 베지테리언
+          <br />
+          (Pollo-vegetarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="6" rowEnd="6">
-          <VegetableIcon  color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="6" rowEnd="6">
-          <DairyIcon  color="#4BB6EC"/>
+          <DairyIcon size="1.5rem" color="#4BB6EC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="6" rowEnd="6">
-          <EggIcon  color="yellow"/> 
+          <EggIcon size="1.5rem" color="yellow" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="6" rowEnd="6">
-          <FishIcon  color="391DEE"/>
+          <FishIcon size="1.5rem" color="391DEE" />
         </GridItem>
         <GridItem colStart="6" colEnd="6" rowStart="6" rowEnd="6">
-          <PoultryIcon  color="FF6A44"/>
+          <PoultryIcon size="1.5rem" color="FF6A44" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="7" rowEnd="7">
-          폴로 베지테리언<br />(Pollo-vegetarian)
+          플렉시테리언
+          <br />
+          (Flexitarian)
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="7" rowEnd="7">
-          <VegetableIcon  color="2A7908"/>
+          <VegetableIcon size="1.5rem" color="2A7908" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="7" rowEnd="7">
-          <DairyIcon  color="#4BB6EC"/>
+          <DairyIcon size="1.5rem" color="#4BB6EC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="7" rowEnd="7">
-          <EggIcon  color="yellow"/> 
+          <EggIcon size="1.5rem" color="yellow" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="7" rowEnd="7">
-          <FishIcon  color="391DEE"/>
+          <FishIcon size="1.5rem" color="391DEE" />
         </GridItem>
         <GridItem colStart="6" colEnd="6" rowStart="7" rowEnd="7">
-          <PoultryIcon  color="FF6A44"/>
+          <PoultryIcon size="1.5rem" color="FF6A44" />
         </GridItem>
         <GridItem colStart="7" colEnd="7" rowStart="7" rowEnd="7">
-          <MeatIcon  color="E61818"/>
+          <MeatIcon size="1.5rem" color="E61818" />
         </GridItem>
       </Grid>
     </Flex>

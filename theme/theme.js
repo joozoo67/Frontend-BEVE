@@ -7,11 +7,13 @@ import {
 const theme = extendTheme({
   ...defaultTheme,
   colors: {
-    beige: "#f4ecd5",
+    lightbeige: "#F5EDEA",
+    beige: "#F2E3DC",
     mustardYello: "#d1a142",
     pink: "#e6494e",
-    lightGreen: "#7ca83f",
-    green: "#1e4500",
+    black: "#5c5c5c",
+    lightGreen: "#99BB96",
+    green: "#3E603B",
   },
   fonts: {
     heading: "Pontano Sans",
