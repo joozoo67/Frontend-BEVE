@@ -1,7 +1,5 @@
-import { Image, Box, Text, Flex, IconButton, Button, Grid } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useState,useEffect } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import Card from "../Card";
 import axios from "axios";
 
 export default function NearShops({ useLoc, isSeoul, usePos }) {
