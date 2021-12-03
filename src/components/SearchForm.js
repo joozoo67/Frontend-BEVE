@@ -13,10 +13,10 @@ import { FaSearch } from "react-icons/fa";
 import { VscListSelection } from "react-icons/vsc";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
 
 import Filter from "./filter/Filter";
-import { queryState, inputState} from "../states";
+import { queryState, inputState, pageState} from "../states";
 
 export default function SearchForm({ width, marginTop, inputVariant }) {
   const [inputValue, setInputValue] = useState("");
@@ -25,6 +25,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   const toast = useToast();
 
   const query = useRecoilValue(queryState);
+  const setPage = useSetRecoilState(pageState);
   const [inputText, setInputText] = useRecoilState(inputState);
 
   const showToast = () => toast({
@@ -41,7 +42,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
     if (query.area === undefined && query.stage === undefined && query.type === undefined && inputText.length === 0) showToast();
     else {
       console.log(query);
-      
+      setPage(1);
       setInputValue("");
       router.push({ 
         pathname: "/ResultPage",

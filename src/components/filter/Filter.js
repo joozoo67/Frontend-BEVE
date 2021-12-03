@@ -14,8 +14,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import FilterTypeBox from "./FilterTypeBox";
-import { filterState, inputState } from "../../states";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { filterState, inputState, pageState } from "../../states";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 export default function Filter({ isOpen, onClose, showToast }) {
   const [selectedArea, setSelectedArea] = useState([]);
@@ -25,9 +25,11 @@ export default function Filter({ isOpen, onClose, showToast }) {
 
   const [filter, setFilter] = useRecoilState(filterState);
   const inputText = useRecoilValue(inputState);
+  const setPage = useSetRecoilState(pageState);
 
 
   const updateFilters = (e) => {
+    setPage(1);
     setFilter({
       area: selectedArea,
       stage: selectedStage,
