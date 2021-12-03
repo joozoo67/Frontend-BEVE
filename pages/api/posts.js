@@ -55,7 +55,7 @@ export default async function handler(req, res) {
   const data = await db
     .collection("sam")
     .find(dict)
-    .limit(10)
+    .limit(12)
     //.find({ $text : { $search : inputText_query_l } })
     .toArray();
 
