@@ -25,13 +25,15 @@ export default function NearShops({ useLoc, isSeoul }) {
     const fetchData = async () => {
       setIsLoading(true);
       setIsError(false);
+      
       const res = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
         .catch(error => {
           setIsError(true);
           console.log(error);
-        }).then((res) => {
+        }).then((response) => {
           setIsLoading(false);
-          setNearShop(res.data);
+          setNearShop(response.data);
+          console.log(response.data);
         });
     };
 
