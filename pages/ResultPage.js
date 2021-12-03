@@ -21,7 +21,7 @@ export default function ResultPage() {
         inputVariant="outline"
         iconButtonVariant="ghost"
       />
-      <Flex flexDirection="column" px="10%" w="100vw">
+      <Flex flexDirection="column" px="10%" w="100vw" minH="80vh">
         <Text fontSize="3xl" mb="3rem" ml="10%" fontWeight="bold">검색결과: </Text>
         <Flex>
           {(page != 1) &&

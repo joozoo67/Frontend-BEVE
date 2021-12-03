@@ -82,6 +82,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
             px="10px"
             borderRadius="100"
             bgColor="white"
+            _focus={`bgColor="white"`}
             placeholder="식당, 메뉴, 지역 등을 입력하세요"
           />
           <InputRightElement mx="10px" h="50px">
