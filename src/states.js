@@ -27,6 +27,7 @@ const queryState = selector({
       stage: filter.stage,
       type: filter.type,
       inputText: input,
+      page: page
     }
   }
 })
