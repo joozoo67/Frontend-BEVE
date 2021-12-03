@@ -9,13 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { useSetRecoilState } from "recoil";
+import { queryState } from "../../states";
 import Card from "../Card";
 
-export default function NearShops({ useLoc,isSeoul }) {
+export default function NearShops({ useLoc, isSeoul }) {
   console.log(useLoc);
   const [location, setLocation] = useState("");
-  //API 불러서 주소 가져오고, setLocation하기
-  //불러온 주소를 바탕으로 filter 돌리기
   const [count, setCount] = useState(0);
 
   const next = () => {
@@ -64,15 +64,12 @@ export default function NearShops({ useLoc,isSeoul }) {
             maxW="25vw"
             minH="60vh"
           />
-          <Flex flexDirection="column" mt="10rem">
-            <Text fontSize="2xl" fontWeight="bold" color="#3E603B">
+          <Flex flexDirection="column" mt="50%" ml="4rem">
+            <Text fontSize="2xl" fontWeight="bold" color="#3E603B" textAlign="left">
               {shopList[count].name}
             </Text>
-            <Text fontSize="1xl" mt="1.2rem">
-              {shopList[count].category}
-            </Text>
-            <Text fontSize="1xl" mt="1.2rem">
-              {shopList[count].address}
+            <Text fontSize="1xl" mt="1.2rem" textAlign="left">
+              {shopList[count].category}<br />{shopList[count].address}
             </Text>
           </Flex>
         </Grid>

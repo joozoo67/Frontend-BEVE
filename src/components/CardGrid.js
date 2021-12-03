@@ -14,7 +14,7 @@ export default function CardGrid() {
   return isLoading === true ? (<Spinner size="xl" mx="auto"/>) :
     (restaurantData.length===0? (<Text fontSize="4xl" mx="auto">검색된 결과가 없습니다</Text>) : (
       <Grid justifyItems="center" templateColumns={`repeat( ${columnNum}, 1fr)`} px="10%" gap={10} >
-        {restaurantData.map((value) => (
+        {restaurantData.map((value, index) => index != 12 && (
           <Card key={value.address} value={value} />
         ))}
         </Grid>

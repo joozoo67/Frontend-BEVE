@@ -6,6 +6,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { pageState, restaurantDataState } from "../src/states";
+import SiteInfo from "../src/components/mainPageSections/SiteInfo";
 
 export default function ResultPage() {
   const restaurantData = useRecoilValue(restaurantDataState);
@@ -20,17 +21,18 @@ export default function ResultPage() {
         inputVariant="outline"
         iconButtonVariant="ghost"
       />
-      <Flex flexDirection="column" px="10%" h="100vh">
+      <Flex flexDirection="column" px="10%" w="100vw">
         <Text fontSize="3xl" mb="3rem" ml="10%" fontWeight="bold">검색결과: </Text>
-        <Flex h="100vh">
+        <Flex>
           {(page != 1) &&
             <IconButton
               onClick={() => setPage(page-1)}
-              icon={<BsChevronCompactLeft size="5rem" />}
+              icon={<BsChevronCompactLeft size="5rem"/>}
               position="fixed"
               top="55%"
               variant="ghost"
               alignSelf="center"
+              _hover={`bgColor="white"`}
             />
           }
           <Spacer />
@@ -38,17 +40,19 @@ export default function ResultPage() {
           <Spacer />
           {(restaurantData.length >= 12) &&
             <IconButton
-            onClick={() => { setPage(page+1)}}
+              onClick={() => setPage(page+1)}
               icon={<BsChevronCompactRight size="5rem" />}
               position="fixed"
               top="55%"
               left="85%"
               variant="ghost"
               alignSelf="center"
+              _hover={`bgColor="white"`}
             />
           }
         </Flex>
       </Flex>
+      <SiteInfo />
     </>
   );
 }

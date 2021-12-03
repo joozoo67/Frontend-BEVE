@@ -3,7 +3,7 @@ import TopBar from "../TopBar";
 
 export default function SiteInfo() {
   return (
-    <Flex bgColor="green" h="200px" color="beige" p="30px">
+    <Flex bgColor="green" h="200px" color="beige" p="30px" mt="3rem">
       <TopBar position="absolute" />
       <Spacer />
       <Flex flexDir="column" alignItems="center" ml="50px">

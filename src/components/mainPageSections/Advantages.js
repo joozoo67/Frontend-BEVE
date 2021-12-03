@@ -10,6 +10,7 @@ export default function Advantages() {
       justifyItems="center"
       py="3%"
       px={{ base: "3%", md: "5%" }}
+      mt="3rem"
     >
       <Image boxSize="25rem" src={vegan2.src} />
       <Box>

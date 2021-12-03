@@ -15,8 +15,7 @@ export default function VegetarianStages() {
       color="#5c5c5c"
       flexDir="column"
       py="3%"
-      px={{ base: "3%", md: "7%" }}
-      pd="2%"
+      px={{ base: "3%", md: "10%" }}
     >
       <Box ml="5rem" bgColor="green" width="80%" h="2px" />
       <Text color="#3E603B" fontSize="3rem" fontWeight="bold" mt="3rem">
@@ -33,7 +32,7 @@ export default function VegetarianStages() {
       </Text>
       <Grid
         templateRows="repeat(8, 1fr)"
-        templateColumns="35% repeat(6, 1fr)"
+        templateColumns="30% repeat(6, 1fr)"
         justifyItems="flex-start"
         w="100%"
         h="50%"
