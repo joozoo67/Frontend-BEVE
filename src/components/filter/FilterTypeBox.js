@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Text, Stack, Button, Input, FormControl } from "@chakra-ui/react";
 
+
 export default function FilterTypeBox({
   type,
   options,
@@ -23,12 +24,14 @@ export default function FilterTypeBox({
 
   const stack = options.map((option, index) => (
     <Button
+      class="filterButton"
       value={option}
       variant="outline"
+      _checked={{"backgroundColor": "green"}}
       key={index}
       m={1.5}
       onClick={(e) => {
-        styles
+        toggleColor(e);
         addOption(e);
       }}
     >
@@ -38,7 +41,7 @@ export default function FilterTypeBox({
 
   return (
     <TypeContainer>
-      <Text>{type}</Text>
+      <Text fontSize="xl" fontWeight="bold">{type}</Text>
       <FormControl direction="row" wrap="wrap">
         {stack}
       </FormControl>
