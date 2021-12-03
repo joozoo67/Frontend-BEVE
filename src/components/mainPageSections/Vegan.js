@@ -4,7 +4,7 @@ import vegan1 from "../../../public/img/vegan1.jpg";
 export default function Vegan() {
   return (
     <Grid
-      bgColor="#F5EDEA"
+      bgColor="lightbeige"
       templateColumns="repeat(2, 1fr)"
       justifyItems="center"
       py="3%"
@@ -12,7 +12,7 @@ export default function Vegan() {
     >
       <Box>
         <Text color="#3E603B" fontSize="4xl" fontWeight="bold">
-          <Box bgColor="green" width="80%" h="2px" />
+          <Box bgColor="green" width="100%" h="2px" />
           <br />
           비건은 채식주의의 한 종류?
         </Text>
