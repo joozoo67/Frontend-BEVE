@@ -15,8 +15,8 @@ export default async function handler(req, res) {
   const inputText_query = req.query.inputText.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const inputText_query_l = inputText_query.replace(",", ' ');
 
-  const page_query = 1;
-  // const page_query = req.query.page - 1;
+  // const page_query = 1;
+  const page_query = req.query.page - 1;
   const start = page_query * 13;
   const end = start + 13;
 
