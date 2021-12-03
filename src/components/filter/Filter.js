@@ -89,8 +89,8 @@ export default function Filter({ isOpen, onClose, showToast }) {
             <ModalFooter>
               <Button
                 variant="solid"
-                size="lg"
-                p="5rem 7.5rem"
+                size="md"
+                mt="5rem"
                 alignSelf="flex-end"
                 onClick={() => {
                   onClose();
