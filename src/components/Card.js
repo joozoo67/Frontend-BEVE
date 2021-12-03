@@ -11,7 +11,7 @@ export default function Card({ value }) {
 
   if (value.franchise == 0) {
       return (
-        <Flex
+        <Box
           as="button"
           variant="ghost"
           _hover="none"
@@ -33,13 +33,13 @@ export default function Card({ value }) {
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Flex>
+        </Box>
       );
   }
 
   else {
       return (
-        <Flex
+        <Box
           as="button"
           variant="ghost"
           _hover="none"
@@ -48,6 +48,7 @@ export default function Card({ value }) {
           flexDirection="column"
           h="100%"
           w="90%"
+          boxShadow="base"
           color="black"
           onClick={onOpen}
         >
@@ -63,7 +64,7 @@ export default function Card({ value }) {
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Flex>
+        </Box>
       );
   }
 }
