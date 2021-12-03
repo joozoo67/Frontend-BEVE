@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import DetailedShop from "./DetailedShop";
 
 export default function Card({ value }) {
+  console.log(value);
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Flex

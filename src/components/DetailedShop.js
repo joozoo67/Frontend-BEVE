@@ -6,12 +6,9 @@ import { Box, Text, Flex, Spacer, Image, Modal,Button,
 import React, { useState, useEffect } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
-import { AiOutlineLeft } from "react-icons/ai";
-import { BsChevronCompactRight } from "react-icons/bs";
 import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
-export default function DetailedShop() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
- 
+export default function DetailedShop({value,onOpen,isOpen,onClose}) {
+  console.log(value);
   const [count, soxetCount] = useState(0);
 
   const next = () => {
