@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
+
   const area_query = req.query.area.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const area_query_list = area_query.split(",");
 
@@ -13,6 +14,11 @@ export default async function handler(req, res) {
 
   const inputText_query = req.query.inputText.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const inputText_query_l = inputText_query.replace(",", ' ');
+
+  const page_query = 1;
+  // const page_query = req.query.page - 1;
+  const start = page_query * 13;
+  const end = start + 13;
 
   var dict = {};
   var dict_area = {};
@@ -53,12 +59,13 @@ export default async function handler(req, res) {
   const data = await db
     .collection("sam")
     .find(dict)
+    .limit(end)
     //.find({ $text : { $search : inputText_query_l } })
     .toArray();
 
-  console.log(data);
+  const datav = data.slice(start, end);
+  console.log(datav);
+  res.json(datav);
 
-  res.json(data);
-
-  return <div>data</div>;
+  return <div>datav</div>;
 }
