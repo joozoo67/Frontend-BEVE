@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
 import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
+import ResultPage from "../../pages/ResultPage";
 export default function DetailedShop({value,isOpen,onClose}) {
   console.log(value);
   const [count, setCount] = useState(0);
@@ -70,8 +71,10 @@ export default function DetailedShop({value,isOpen,onClose}) {
                       <Flex key={index}>
                         <Text m={0.5}>{menus.name}</Text>
                         <Spacer />
-                        <Text>{menus.level.join(", ")}</Text>
-                      </Flex>
+                       
+                          <Text>{menus.level.join(", ")} </Text>
+                       
+                        </Flex>
                     ))}
                   </Text>
             </Box>

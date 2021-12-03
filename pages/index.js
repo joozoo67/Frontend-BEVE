@@ -17,7 +17,6 @@ import CurrentAddress from "../src/components/location/CurrentAddress";
 export default function Home() {
   return (
     <>
-  <DetailedShop/>
       <TopBar position="absolute" />
       <Image
         w="100vw"
@@ -28,10 +27,10 @@ export default function Home() {
       />
       <MainSearchForm />
       <Advantages />
-      <Flex h="800px">
+    
         <Vegan />
         <CurrentLocation/>
-      </Flex>
+
       <VegetarianStages />
       <SiteInfo />
     </>
