@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
-export default function Map() {
+export default function Map({value}) {
   useEffect(() => {
     
     kakao.maps.load(() => {
@@ -14,7 +14,7 @@ export default function Map() {
      
         var map = new kakao.maps.Map(mapContainer, mapOption); 
         var geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch('서울 마포구 신촌로12다길 20', function(result, status) {
+        geocoder.addressSearch(value.location.address, function(result, status) {
         
             if (status === kakao.maps.services.Status.OK) {
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
