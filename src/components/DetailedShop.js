@@ -22,120 +22,63 @@ export default function DetailedShop({value,isOpen,onClose}) {
 
   return (
     <>
-<<<<<<< HEAD
-      <Box as="button" onClick={onOpen}>Open Modal</Box>
-        <Modal size="xl" isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay color="green"/>
-          <ModalContent>
-            <Image
-            w="50rem"
-            h="30rem"
-            boxShadow="md"
-            borderRadius="0.2rem"
-            src={food.src}
-            objectFit="fill"
-          />
-          <Flex direction="row" justify="center" m={1}>
-          <Button
-          p={1}
-            as={VscCircleFilled}
-            onClick={next}
-            size="sm"
-            variant="ghost"
-            color="#3E603B"
-          />
-          <Button
-          p={1}
-            as={VscCircleOutline}
-            onClick={next}
-            size="sm"
-            variant="ghost"
-            color="#3E603B"
-          />
-=======
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay color="green"/>
         <ModalContent>
           <Image
-          w="50rem"
-          h="30rem"
-          boxShadow="md"
-          borderRadius="0.2rem"
-          src={`/img_res/${value.name}/1.png`}
-          objectFit="fill"
-        />
-        <Flex direction="row" justify="center" m={1}>
-         <Button
-         p={1}
-          as={VscCircleFilled}
-          onClick={next}
-          size="sm"
-          variant="ghost"
-          color="#3E603B"
-        />
-         <Button
-         p={1}
-          as={VscCircleOutline}
-          onClick={next}
-          size="sm"
-          variant="ghost"
-          color="#3E603B"
-        />
-        </Flex>
-         <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
-         <ModalBody>
-          <Flex direction="column" justify="center">
-          <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{value.name}</Text>
-            <Box m={2}>
-              <Text m={1}>카테고리 : {value.category}</Text>
-              <Text  m={1}>전화번호 : {value.phone}</Text>
-              <Text  m={1}>주소 : {value.location.address}</Text>
-  
-            </Box>
-            <Box m={2}>
-            <Text m={1}>메뉴<hr/></Text>
-              <Text>
-                    {value.menu.map((menus, index) => (
-                      <Flex key={index}>
-                        <Text m={0.5}>{menus.name}</Text>
-                        <Spacer />
-                        <Text>{menus.level.join(", ")}</Text>
-                      </Flex>
-                    ))}
-                  </Text>
-            </Box>
-            
->>>>>>> 57c367f4eef66fbb7a2c170277772205b0871cd8
+            w="50rem"
+            h="30rem"
+            boxShadow="md"
+            borderRadius="0.2rem"
+            src={`/img_res/${value.name}/1.png`}
+            objectFit="fill"
+          />
+          <Flex direction="row" justify="center" m={1}>
+            <Button
+              p={1}
+              as={VscCircleFilled}
+              onClick={next}
+              size="sm"
+              variant="ghost"
+              color="#3E603B"
+            />
+            <Button
+              p={1}
+              as={VscCircleOutline}
+              onClick={next}
+              size="sm"
+              variant="ghost"
+              color="#3E603B"
+            />
           </Flex>
           <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
           <ModalBody>
             <Flex direction="column" justify="center">
-            <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{shopList[0].name}</Text>
+              <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{value.name}</Text>
               <Box m={2}>
-                <Text m={1}>카테고리 : {shopList[0].category}</Text>
-                <Text  m={1}>전화번호 : {shopList[0].phone}</Text>
-                <Text  m={1}>주소 : {shopList[0].location.address}</Text>
-    
+                <Text m={1}>카테고리 : {value.category}</Text>
+                <Text  m={1}>전화번호 : {value.phone}</Text>
+                <Text  m={1}>주소 : {value.location.address}</Text>
               </Box>
               <Box m={2}>
-              <Text m={1}>메뉴<hr/></Text>
+                <Text m={1}>메뉴<hr/></Text>
                 <Text>
-                      {shopList[0].menu.map((menus, index) => (
+                      {value.menu.map((menus, index) => (
                         <Flex key={index}>
                           <Text m={0.5}>{menus.name}</Text>
                           <Spacer />
                           <Text>{menus.level.join(", ")}</Text>
                         </Flex>
                       ))}
-                    </Text>
+                </Text>
               </Box>
-              
             </Flex>
-        <Flex justify="center" m={4}>
-        <Map />
-        </Flex>
-            </ModalBody>   
-          </ModalContent>
+            <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+            <Flex justify="center" m={4}>
+              <Map />
+            </Flex>
+          </ModalBody>   
+        </ModalContent>
       </Modal>
     </>
   );
