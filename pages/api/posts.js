@@ -2,7 +2,6 @@ import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
-  // /api/posts?area=["강동구", "강서구"]&stage=["비건", "락토"]&type=["중식"]&inputText={}&page=1 형식
 
   const area_query = req.query.area.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const area_query_list = area_query.split(",");
@@ -16,7 +15,8 @@ export default async function handler(req, res) {
   const inputText_query = req.query.inputText.replace(/[[|{|}|]|]| |'|"|']+/g, '');
   const inputText_query_l = inputText_query.replace(",", ' ');
 
-  const page_query = req.query.page - 1;
+  const page_query = 1;
+  // const page_query = req.query.page - 1;
   const start = page_query * 13;
   const end = start + 13;
 
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
     .toArray();
 
   const datav = data.slice(start, end);
-  console.log(datav);
+  // console.log(datav);
   res.json(datav);
 
   return <div>datav</div>;
