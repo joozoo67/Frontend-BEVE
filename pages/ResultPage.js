@@ -5,11 +5,12 @@ import { Flex, Text, Spacer, IconButton } from "@chakra-ui/react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 import { useRecoilState, useRecoilValue } from "recoil";
-import { pageState, restaurantDataState } from "../src/states";
+import { pageState, queryState, restaurantDataState } from "../src/states";
 
 export default function ResultPage() {
   const restaurantData = useRecoilValue(restaurantDataState);
   const [page, setPage] = useRecoilState(pageState);
+  const query = useRecoilValue(queryState);
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function ResultPage() {
           <Spacer />
           {(restaurantData.length >= 12) &&
             <IconButton
-              conClick={() => setPage(page+1)}
+            onClick={() => { console.log(page); console.log(query); setPage(page+1)}}
               icon={<BsChevronCompactRight size="5rem" />}
               position="fixed"
               top="55%"
