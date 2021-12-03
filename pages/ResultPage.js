@@ -25,7 +25,7 @@ export default function ResultPage() {
         <Flex h="100vh">
           {(page != 1) &&
             <IconButton
-              onClick={setPage(page-1)}
+              onClick={() => setPage(page-1)}
               icon={<BsChevronCompactLeft size="5rem" />}
               position="fixed"
               top="55%"
@@ -38,7 +38,7 @@ export default function ResultPage() {
           <Spacer />
           {(restaurantData.length >= 12) &&
             <IconButton
-              conClick={setPage(page+1)}
+              conClick={() => setPage(page+1)}
               icon={<BsChevronCompactRight size="5rem" />}
               position="fixed"
               top="55%"
