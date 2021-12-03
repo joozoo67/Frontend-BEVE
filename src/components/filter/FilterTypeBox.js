@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { Text, Stack, Button, Input, FormControl } from "@chakra-ui/react";
+import styled, {css} from "styled-components";
+import { Text, FormControl } from "@chakra-ui/react";
+
 
 export default function FilterTypeBox({
   type,
@@ -15,30 +16,26 @@ export default function FilterTypeBox({
     }
   };
 
-  const toggleColor = (e) => {
-    if (e.target.variant === "outline") {
-      e.target.variant = "filled";
-    }
-  };
-
   const stack = options.map((option, index) => (
-    <Button
+    <FilterButton
+      clicked="false"
+      class="filterButton"
       value={option}
-      variant="outline"
       key={index}
       m={1.5}
       onClick={(e) => {
-        toggleColor(e);
+        console.log(e.target.clicked);
+        e.target.clicked = e.target.clicked === "true" ? "false" : "true";
         addOption(e);
       }}
     >
       {option}
-    </Button>
+    </FilterButton>
   ));
 
   return (
     <TypeContainer>
-      <Text>{type}</Text>
+      <Text fontSize="xl" fontWeight="bold">{type}</Text>
       <FormControl direction="row" wrap="wrap">
         {stack}
       </FormControl>
@@ -47,5 +44,34 @@ export default function FilterTypeBox({
 }
 
 const TypeContainer = styled.div`
-  margin: 15px;
+  margin: 2rem 1rem 3rem 1rem;
 `;
+
+const FilterButton = styled.button`
+  transition-duration: 0.3s;
+  width: fit-content;
+  margin: 0.3rem;
+  border: 1.7px solid;
+  padding: 0.5rem;
+  border-color: #3E603B;
+  border-radius: 0.6rem;
+
+  &:hover{
+    background: #99BB96;
+    border-color: #99BB96;
+    color: white;
+  }
+
+  &:active{
+    border: 1.7px solid !important;
+  }
+
+  ${(props) => {
+  if (props.clicked === "true") {
+    css`
+      background: #3E603B !important;
+      color: white;
+      border-color: #3E603B;`
+  }}}
+
+`

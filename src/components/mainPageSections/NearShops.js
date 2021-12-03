@@ -1,4 +1,4 @@
-import { Box, Text, Flex, IconButton, Button } from "@chakra-ui/react";
+import { Box, Text, Flex, IconButton, Button, Grid } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Card from "../Card";
@@ -23,7 +23,6 @@ export default function NearShops({ useLoc,isSeoul }) {
     <Box
       display="flex"
       flexDirection="column"
-      textAlign="center"
       py="3%"
       px={{ base: "3%", md: "5%" }}
       bgColor="#F3E6DF"
@@ -32,11 +31,9 @@ export default function NearShops({ useLoc,isSeoul }) {
       <Text fontSize="4xl" fontWeight="bold" color="#3E603B">
         주변 음식점
       </Text>
-     
-        <Text fontSize="2xl" color="#5C5C5C">
-          현 위치: {useLoc.address}
-        </Text>
-      
+      <Text fontSize="2xl" color="#5C5C5C">
+        현 위치: {useLoc.address}
+      </Text>
       <Flex alignItems="center" justify="center" mt="1.5rem">
         <Button
           as={BsChevronCompactLeft}
@@ -44,20 +41,20 @@ export default function NearShops({ useLoc,isSeoul }) {
           size="lg"
           variant="ghost"
         />
-        <Flex flexDirection="column" w="3%" flexGrow="0.3" px="10px">
-          <Card
-            value={shopList[count]}
-            layout={{
-              cardDirection: "row",
-              textDirection: "column",
-              boxShadow: "none",
-              fontSize: "s4xl",
-              spacer: true,
-            }}
-          />
-        </Flex>
+        <Grid
+          templateColumns="repeat(2, 1fr)"
+          justifyItems="center"
+          py="3%"
+          px={{ base: "3%", md: "5%" }}
+        >
+          <Flex flexDirection="column">
+            <Text>{shopList[count].name}</Text>
+            <Text>{shopList[count].category}</Text>
+            <Text>{shopList[count].address}</Text>
+          </Flex>
+        </Grid>
         <IconButton
-          src={<BsChevronCompactRight />}
+          as={BsChevronCompactRight}
           onClick={next}
           size="lg"
           variant="ghost"

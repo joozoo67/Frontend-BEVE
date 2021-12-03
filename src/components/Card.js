@@ -59,5 +59,4 @@ export default function Card({ value }) {
         </Box>
       );
   }
-
 }

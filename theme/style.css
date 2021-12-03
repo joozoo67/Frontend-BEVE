@@ -1,0 +1,46 @@
+.filterButton {
+  transition-duration: 0.3s;
+}
+
+.filterButton:visited{
+  background: #3E603B !important;
+  color: white;
+  border-color: #3E603B;
+}
+
+.filterButton:hover{
+  background: #99BB96;
+  border-color: #99BB96;
+  color: white;
+}
+
+.filterButton:active{
+  border: 1.7px solid !important;
+  border-color: #3E603B !important;
+}
+
+.filterButton{
+  width: fit-content;
+  margin: 0.5rem;
+  border: 1.7px solid;
+  padding: 0.5rem;
+  border-color: #3E603B;
+  border-radius: 0.6rem;
+}
+
+.filterButton:focus{
+  background: #3E603B !important;
+  color: white;
+  border-color: #3E603B;
+}
+
+.css-f9928h{
+  border-color: #3E603B;
+  background-color: transparent;
+}
+
+label:focus{
+  background: #3E603B !important;
+  color: white;
+
+}

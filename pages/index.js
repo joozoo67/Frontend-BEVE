@@ -6,10 +6,7 @@ import MainSearchForm from "../src/components/mainPageSections/MainSearchForm";
 import Advantages from "../src/components/mainPageSections/Advantages";
 import Vegan from "../src/components/mainPageSections/Vegan";
 import VegetarianStages from "../src/components/mainPageSections/VegetarianStages";
-import NearShops from "../src/components/mainPageSections/NearShops";
 import SiteInfo from "../src/components/mainPageSections/SiteInfo";
-import food from "../public/img/food.png";
-import Map from "../src/components/Map"
 import DetailedShop from "../src/components/DetailedShop";
 import CurrentLocation from "../src/components/location/CurrentLocation";
 import CurrentAddress from "../src/components/location/CurrentAddress";
@@ -17,7 +14,6 @@ import CurrentAddress from "../src/components/location/CurrentAddress";
 export default function Home() {
   return (
     <>
-  <DetailedShop/>
       <TopBar position="absolute" />
       <Image
         w="100vw"
@@ -28,10 +24,8 @@ export default function Home() {
       />
       <MainSearchForm />
       <Advantages />
-      <Flex h="800px">
-        <Vegan />
-        <CurrentLocation/>
-      </Flex>
+      <Vegan />
+      <CurrentLocation />
       <VegetarianStages />
       <SiteInfo />
     </>
