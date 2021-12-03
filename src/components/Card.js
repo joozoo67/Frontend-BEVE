@@ -49,7 +49,7 @@ export default function Card({ value }) {
           color="black"
           onClick={() => <DetailedShop isOpen={isOpen} onOpen={onOpen} onClose={onClose} value={value}/>}
         >
-             <Image src={`/img_res/tmp_t[0]/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+             <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
 
           <Box m={2} textAlign="left">
             <Text color="green" fontWeight="bolder">{value.name}</Text>
