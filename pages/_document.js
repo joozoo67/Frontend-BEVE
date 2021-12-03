@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head />
         <script
             type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aa99be5ee606c11c9dd6dc0167b6870f&libraries=services"          
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=701308a3e8b821d1b64da85d9c5380fe&libraries=services"          
           ></script>
         <body>
           <Main />

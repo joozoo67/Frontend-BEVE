@@ -7,7 +7,6 @@ import Advantages from "../src/components/mainPageSections/Advantages";
 import Vegan from "../src/components/mainPageSections/Vegan";
 import VegetarianStages from "../src/components/mainPageSections/VegetarianStages";
 import SiteInfo from "../src/components/mainPageSections/SiteInfo";
-import CurrentLocation from "../src/components/location/CurrentLocation";
 
 export default function Home() {
   return (
