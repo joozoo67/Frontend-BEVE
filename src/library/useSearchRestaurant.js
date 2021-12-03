@@ -23,7 +23,7 @@ export default function useSearchRestaurants() {
         console.log(error);
       }).then(response => {
         setIsLoading(false);
-       setRestaurantData(tempData)
+       setRestaurantData(response.data)
       })
     };
     
