@@ -1,21 +1,67 @@
 import { Box, Text, Flex, IconButton, Button, Grid } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Card from "../Card";
+import axios from "axios";
 
-export default function NearShops({ useLoc,isSeoul }) {
-  console.log(useLoc);
-  const [location, setLocation] = useState("");
+export default function NearShops({ useLoc, isSeoul }) {
+  console.log(useLoc.city);  //useLoc.city=구 useLoc.address=주소 isSeoul이 1이면 서울
+  const [isLoading, setIsLoading] = useState(null);
+  const [isError, setIsError] = useState(null);
+  const [nearShop, setNearShop] = useState(null);
   //API 불러서 주소 가져오고, setLocation하기
   //불러온 주소를 바탕으로 filter 돌리기
   const [count, setCount] = useState(0);
+  if (isSeoul) {
+    useEffect(() => {
+      const fetchData = async () => {
+        setIsLoading(true);
+        setIsError(false);
+        const res = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
+          .catch(error => {
+            setIsError(true);
+            console.log(error);
+          })
+        setIsLoading(false);
+        setNearShop(res.data);
+      };
+      fetchData();
+
+    }, [useLoc.city]);
+  } else {
+    return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      py="3%"
+      px={{ base: "3%", md: "5%" }}
+      bgColor="#F3E6DF"
+      flexGrow={1}
+    >
+        <Text fontSize="4xl" fontWeight="bold" color="#3E603B">
+        주변 음식점
+      </Text>
+        <Text fontSize="2xl" color="#5C5C5C">
+        현 위치: {useLoc.address}
+        </Text>
+        <Box m={10}>
+        <Flex fontStyle="italic" m={10} alignItems="center" justify="center" mt="1.5rem">
+        가까운 음식점이 없습니다.
+          </Flex>
+          </Box>
+    </Box>
+  );
+
+  }
+
 
   const next = () => {
-    if (count == shopList.length - 1) setCount(0);
+    if (count == nearShop.length - 1) setCount(0);
     else setCount(count + 1);
   };
+
   const before = () => {
-    if (count == 0) setCount(shopList.length - 1);
+    if (count == 0) setCount(nearShop.length - 1);
     else setCount(count - 1);
   };
 
@@ -48,9 +94,9 @@ export default function NearShops({ useLoc,isSeoul }) {
           px={{ base: "3%", md: "5%" }}
         >
           <Flex flexDirection="column">
-            <Text>{shopList[count].name}</Text>
-            <Text>{shopList[count].category}</Text>
-            <Text>{shopList[count].address}</Text>
+            <Text>{nearShop[count].name}</Text>
+            <Text>{nearShop[count].category}</Text>
+            <Text>{nearShop[count].address}</Text>
           </Flex>
         </Grid>
         <IconButton
