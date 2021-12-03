@@ -64,7 +64,7 @@ export default async function handler(req, res) {
     .toArray();
 
   const datav = data.slice(start, end);
-  console.log(datav);
+  // console.log(datav);
   res.json(datav);
 
   return <div>datav</div>;
