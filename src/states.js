@@ -27,7 +27,6 @@ const queryState = selector({
       stage: filter.stage,
       type: filter.type,
       inputText: input,
-      page: page,
     }
   }
 })
@@ -42,4 +41,4 @@ const nearShopDataState = atom({
   default: [],
 })
 
-export { filterState, inputState, queryState, restaurantDataState, nearShopDataState };
+export { pageState, filterState, inputState, queryState, restaurantDataState, nearShopDataState };

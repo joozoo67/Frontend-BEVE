@@ -41,7 +41,6 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
     if (query.area === undefined && query.stage === undefined && query.type === undefined && inputText.length === 0) showToast();
     else {
       console.log(query);
-      console.log(query);
       
       setInputValue("");
       router.push({ 
