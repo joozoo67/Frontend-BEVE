@@ -12,7 +12,7 @@ export default function Vegan() {
     >
       <Box>
         <Text color="#3E603B" fontSize="4xl" fontWeight="bold">
-          <hr color="green" width="500rem" height="500rem" />
+          <Box bgColor="green" width="80%" h="2px" />
           <br />
           비건은 채식주의의 한 종류?
         </Text>

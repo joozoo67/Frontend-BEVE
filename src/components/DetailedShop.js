@@ -1,8 +1,6 @@
 import { Box, Text, Flex, Spacer, Image, Modal,Button,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton } from "@chakra-ui/react";
 import React, { useState } from "react";
@@ -29,60 +27,57 @@ export default function DetailedShop({value,isOpen,onClose}) {
         <ModalOverlay color="green"/>
         <ModalContent>
           <Image
-          w="50rem"
-          h="30rem"
-          boxShadow="md"
-          borderRadius="0.2rem"
-          src={`/img_res/${value.name}/1.png`}
-          objectFit="fill"
-        />
-        <Flex direction="row" justify="center" m={1}>
-         <Button
-         p={1}
-          as={VscCircleFilled}
-          onClick={next}
-          size="sm"
-          variant="ghost"
-          color="#3E603B"
-        />
-         <Button
-         p={1}
-          as={VscCircleOutline}
-          onClick={next}
-          size="sm"
-          variant="ghost"
-          color="#3E603B"
-        />
-        </Flex>
-         <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
-         <ModalBody>
-          <Flex direction="column" justify="center">
-          <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{value.name}</Text>
-            <Box m={2}>
-              <Text m={1}>카테고리 : {value.category}</Text>
-              <Text  m={1}>전화번호 : {value.phone}</Text>
-              <Text  m={1}>주소 : {value.location.address}</Text>
-  
-            </Box>
-            <Box m={2}>
-            <Text m={1}>메뉴<hr/></Text>
-              <Text>
-                    {value.menu.map((menus, index) => (
-                      <Flex key={index}>
-                        <Text m={0.5}>{menus.name}</Text>
-                        <Spacer />
-                       
-                          <Text>{menus.level.join(", ")} </Text>
-                       
-                        </Flex>
-                    ))}
-                  </Text>
-            </Box>
-            
+            w="50rem"
+            h="30rem"
+            boxShadow="md"
+            borderRadius="0.2rem"
+            src={`/img_res/${value.name}/1.png`}
+            objectFit="fill"
+          />
+          <Flex direction="row" justify="center" m={1}>
+            <Button
+              p={1}
+              as={VscCircleFilled}
+              onClick={next}
+              size="sm"
+              variant="ghost"
+              color="#3E603B"
+            />
+            <Button
+              p={1}
+              as={VscCircleOutline}
+              onClick={next}
+              size="sm"
+              variant="ghost"
+              color="#3E603B"
+            />
           </Flex>
-      <Flex justify="center" m={4}>
-       <Map />
-      </Flex>
+          <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+          <ModalBody>
+            <Flex direction="column" justify="center">
+              <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{value.name}</Text>
+              <Box m={2}>
+                <Text m={1}>카테고리 : {value.category}</Text>
+                <Text  m={1}>전화번호 : {value.phone}</Text>
+                <Text  m={1}>주소 : {value.location.address}</Text>
+              </Box>
+              <Box m={2}>
+                <Text m={1}>메뉴<hr/></Text>
+                <Text>
+                      {value.menu.map((menus, index) => (
+                        <Flex key={index}>
+                          <Text m={0.5}>{menus.name}</Text>
+                          <Spacer />
+                          <Text>{menus.level.join(", ")}</Text>
+                        </Flex>
+                      ))}
+                </Text>
+              </Box>
+            </Flex>
+            <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+            <Flex justify="center" m={4}>
+              <Map />
+            </Flex>
           </ModalBody>   
         </ModalContent>
       </Modal>

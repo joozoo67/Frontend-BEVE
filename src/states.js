@@ -1,5 +1,9 @@
 import { atom, selector } from "recoil";
-import axios from "axios";
+
+const pageState = atom({
+  key: "pageState",
+  default: 1
+})
 
 const filterState = atom({
   key: "filterState",
@@ -16,12 +20,14 @@ const queryState = selector({
   get: ({ get })=> {
     const filter = get(filterState);
     const input = get(inputState);
+    const page = get(pageState);
 
     return {
       area: filter.area,
       stage: filter.stage,
       type: filter.type,
-      inputText: input
+      inputText: input,
+      page: page
     }
   }
 })
@@ -36,4 +42,4 @@ const nearShopDataState = atom({
   default: [],
 })
 
-export { filterState, inputState, queryState, restaurantDataState, nearShopDataState };
+export { pageState, filterState, inputState, queryState, restaurantDataState, nearShopDataState };
