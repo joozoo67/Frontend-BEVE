@@ -12,6 +12,7 @@ import CurrentLocation from "../src/components/location/CurrentLocation";
 export default function Home() {
   return (
     <>
+
       <TopBar position="absolute" />
       <Image
         w="100vw"
@@ -19,11 +20,10 @@ export default function Home() {
         position="absolute"
         objectFit="cover"
         src={mainBackground.src}
-      />
-      <MainSearchForm />
+        />
+        <MainSearchForm />
       <Advantages />
       <Vegan />
-      <CurrentLocation />
       <VegetarianStages />
       <SiteInfo />
     </>

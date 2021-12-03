@@ -11,7 +11,7 @@ export default function Card({ value }) {
 
   if (value.franchise == 0) {
       return (
-        <Flex
+        <Box
           as="button"
           variant="ghost"
           _hover="none"
@@ -25,7 +25,7 @@ export default function Card({ value }) {
         >
           <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
           { `../../public/img_res/${value.name}/1.png` ? (
-            <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+            <Image src={`../../public/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
           ):(<Image src={noimage.src} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />)
           }
           <Box m={2} textAlign="left">
@@ -33,13 +33,13 @@ export default function Card({ value }) {
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Flex>
+        </Box>
       );
   }
 
   else {
       return (
-        <Flex
+        <Box
           as="button"
           variant="ghost"
           _hover="none"
@@ -48,12 +48,13 @@ export default function Card({ value }) {
           flexDirection="column"
           h="100%"
           w="90%"
+          boxShadow="base"
           color="black"
           onClick={onOpen}
         >
           <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
-           { `/img_res/` + tmp_t[0] + `/1.png` ? (
-             <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+           { `../../public/img_res/` + tmp_t[0] + `/1.png` ? (
+             <Image src={`../../public/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
           ):(<Image src={noimage.src} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />)
           }
 
@@ -63,7 +64,7 @@ export default function Card({ value }) {
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Flex>
+        </Box>
       );
   }
 }

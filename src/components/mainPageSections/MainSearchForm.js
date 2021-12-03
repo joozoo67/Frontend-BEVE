@@ -1,6 +1,7 @@
 import { Flex, Spacer, Text } from "@chakra-ui/layout";
 import Fonts from "../../../theme/Fonts";
 import SearchForm from "../SearchForm";
+import CurrentLocation from "../location/CurrentLocation";
 
 export default function MainSearchForm() {
   return (
@@ -20,7 +21,10 @@ export default function MainSearchForm() {
       <Text fontSize="4xl" color="beige" mt="0.5em">
         BECOME VEGETARIAN
       </Text>
+      <Flex direction="column">
       <SearchForm width="100%" marginTop="3em" inputVariant="filled" />
+        <CurrentLocation />
+        </Flex>
     </Flex>
   );
 }

@@ -42,5 +42,5 @@ export default function CurrentAddress({usePos}) {
      return(<div>에러</div>);
   }
   console.log(usePos);
-  return <Box><NearShops useLoc={useLoc} isSeoul={isSeoul}/></Box>;
+  return <Box><NearShops useLoc={useLoc} isSeoul={isSeoul} usePos={usePos}/></Box>;
 }
