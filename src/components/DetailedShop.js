@@ -2,14 +2,14 @@ import { Box, Text, Flex, Spacer, Image, Modal,Button,
   ModalOverlay,
   ModalContent,
   ModalBody,
-  ModalCloseButton, useDisclosure } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+  ModalCloseButton } from "@chakra-ui/react";
+import React, { useState } from "react";
 import food from "../../public/img/food.png";
 import Map from "./Map";
 import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
-export default function DetailedShop({value,onOpen,isOpen,onClose}) {
+export default function DetailedShop({value,isOpen,onClose}) {
   console.log(value);
-  const [count, soxetCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const next = () => {
     if (count == 1) setCount(0);
@@ -22,6 +22,7 @@ export default function DetailedShop({value,onOpen,isOpen,onClose}) {
 
   return (
     <>
+<<<<<<< HEAD
       <Box as="button" onClick={onOpen}>Open Modal</Box>
         <Modal size="xl" isOpen={isOpen} onClose={onClose}>
           <ModalOverlay color="green"/>
@@ -51,6 +52,60 @@ export default function DetailedShop({value,onOpen,isOpen,onClose}) {
             variant="ghost"
             color="#3E603B"
           />
+=======
+      <Modal size="xl" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay color="green"/>
+        <ModalContent>
+          <Image
+          w="50rem"
+          h="30rem"
+          boxShadow="md"
+          borderRadius="0.2rem"
+          src={`/img_res/${value.name}/1.png`}
+          objectFit="fill"
+        />
+        <Flex direction="row" justify="center" m={1}>
+         <Button
+         p={1}
+          as={VscCircleFilled}
+          onClick={next}
+          size="sm"
+          variant="ghost"
+          color="#3E603B"
+        />
+         <Button
+         p={1}
+          as={VscCircleOutline}
+          onClick={next}
+          size="sm"
+          variant="ghost"
+          color="#3E603B"
+        />
+        </Flex>
+         <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
+         <ModalBody>
+          <Flex direction="column" justify="center">
+          <Text fontSize="1.8rem" fontWeight="bolder" m={2}>{value.name}</Text>
+            <Box m={2}>
+              <Text m={1}>카테고리 : {value.category}</Text>
+              <Text  m={1}>전화번호 : {value.phone}</Text>
+              <Text  m={1}>주소 : {value.location.address}</Text>
+  
+            </Box>
+            <Box m={2}>
+            <Text m={1}>메뉴<hr/></Text>
+              <Text>
+                    {value.menu.map((menus, index) => (
+                      <Flex key={index}>
+                        <Text m={0.5}>{menus.name}</Text>
+                        <Spacer />
+                        <Text>{menus.level.join(", ")}</Text>
+                      </Flex>
+                    ))}
+                  </Text>
+            </Box>
+            
+>>>>>>> 57c367f4eef66fbb7a2c170277772205b0871cd8
           </Flex>
           <ModalCloseButton borderRadius="3rem" backgroundColor="#3E603B" color="white"/>    
           <ModalBody>
