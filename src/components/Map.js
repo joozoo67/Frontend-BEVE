@@ -1,6 +1,6 @@
 /*global kakao*/
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 export default function Map() {
   useEffect(() => {
@@ -16,18 +16,13 @@ export default function Map() {
         var geocoder = new kakao.maps.services.Geocoder();
         geocoder.addressSearch('서울 마포구 신촌로12다길 20', function(result, status) {
         
-            // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
-        
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-        
-                // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
                     position: coords
                 });
                 marker.setMap(map);
-                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                 map.setCenter(coords);
             } 
         }); 
