@@ -21,10 +21,10 @@ export default function Card({ value }) {
           w="90%"
           boxShadow="base"
           color="black"
-          onClick={() => <DetailedShop isOpen={isOpen} onOpen={onOpen} onClose={onClose} value={value}/>}
+          onClick={onOpen}
         >
-            <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
-
+          <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
+          <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
           <Box m={2} textAlign="left">
             <Text color="green" fontWeight="bolder">{value.name}</Text>
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
@@ -50,7 +50,7 @@ export default function Card({ value }) {
           onClick={onOpen}
         >
           <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
-             <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+          <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
 
           <Box m={2} textAlign="left">
             <Text color="green" fontWeight="bolder">{value.name}</Text>
