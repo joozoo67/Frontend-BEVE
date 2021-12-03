@@ -3,7 +3,8 @@ import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Card from "../Card";
 
-export default function NearShops() {
+export default function NearShops({ useLoc,isSeoul }) {
+  console.log(useLoc);
   const [location, setLocation] = useState("");
   //API 불러서 주소 가져오고, setLocation하기
   //불러온 주소를 바탕으로 filter 돌리기
@@ -31,9 +32,11 @@ export default function NearShops() {
       <Text fontSize="4xl" fontWeight="bold" color="#3E603B">
         주변 음식점
       </Text>
-      <Text fontSize="2xl" color="#5C5C5C">
-        현 위치: {location}
-      </Text>
+     
+        <Text fontSize="2xl" color="#5C5C5C">
+          현 위치: {useLoc.address}
+        </Text>
+      
       <Flex alignItems="center" justify="center" mt="1.5rem">
         <Button
           as={BsChevronCompactLeft}
