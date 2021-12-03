@@ -4,7 +4,7 @@ import vegan2 from "../../../public/img/vegan2.jpg";
 export default function Advantages() {
   return (
     <Grid
-      bgColor="#F5EDEA"
+      bgColor="lightbeige"
       templateColumns="repeat(2, 1fr)"
       justifyContent="center"
       justifyItems="center"

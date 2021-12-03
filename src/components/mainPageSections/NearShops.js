@@ -1,4 +1,12 @@
-import { Box, Text, Flex, IconButton, Button, Grid } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  IconButton,
+  Button,
+  Grid,
+  Image,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Card from "../Card";
@@ -22,18 +30,20 @@ export default function NearShops() {
     <Box
       display="flex"
       flexDirection="column"
+      textAlign="center"
       py="3%"
       px={{ base: "3%", md: "5%" }}
-      bgColor="#F3E6DF"
+      bgColor="lightbeige"
       flexGrow={1}
     >
-      <Text fontSize="4xl" fontWeight="bold" color="#3E603B">
+      <Box ml="10rem" bgColor="green" width="70%" h="2px" />
+      <Text fontSize="4xl" fontWeight="bold" color="#3E603B" mt="3rem">
         주변 음식점
       </Text>
       <Text fontSize="2xl" color="#5C5C5C">
         <br />현 위치: {location}
       </Text>
-      <Flex alignItems="center">
+      <Flex alignItems="center" justify="center" mt="1.5rem">
         <Button
           as={BsChevronCompactLeft}
           onClick={before}
@@ -42,14 +52,27 @@ export default function NearShops() {
         />
         <Grid
           templateColumns="repeat(2, 1fr)"
-          justifyItems="center"
           py="3%"
           px={{ base: "3%", md: "5%" }}
         >
-          <Flex flexDirection="column">
-            <Text>{shopList[count].name}</Text>
-            <Text>{shopList[count].category}</Text>
-            <Text>{shopList[count].address}</Text>
+          <Image
+            src={`/img_res/${shopList[count].name}/1.PNG`}
+            objectFit="fill"
+            w="25vw"
+            h="60vh"
+            maxW="25vw"
+            minH="60vh"
+          />
+          <Flex flexDirection="column" mt="10rem">
+            <Text fontSize="2xl" fontWeight="bold" color="#3E603B">
+              {shopList[count].name}
+            </Text>
+            <Text fontSize="1xl" mt="1.2rem">
+              {shopList[count].category}
+            </Text>
+            <Text fontSize="1xl" mt="1.2rem">
+              {shopList[count].address}
+            </Text>
           </Flex>
         </Grid>
         <IconButton

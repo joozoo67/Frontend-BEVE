@@ -16,8 +16,8 @@ const theme = extendTheme({
     green: "#3E603B",
   },
   fonts: {
-    heading: "Pontano Sans",
-    body: "Pontano Sans",
+    heading: "Zilla",
+    body: "Zilla",
   },
 });
 
