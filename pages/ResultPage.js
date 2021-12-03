@@ -5,12 +5,11 @@ import { Flex, Text, Spacer, IconButton } from "@chakra-ui/react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 import { useRecoilState, useRecoilValue } from "recoil";
-import { pageState, queryState, restaurantDataState } from "../src/states";
+import { pageState, restaurantDataState } from "../src/states";
 
 export default function ResultPage() {
   const restaurantData = useRecoilValue(restaurantDataState);
   const [page, setPage] = useRecoilState(pageState);
-  const query = useRecoilValue(queryState);
 
   return (
     <>
@@ -22,7 +21,7 @@ export default function ResultPage() {
         iconButtonVariant="ghost"
       />
       <Flex flexDirection="column" px="10%" h="100vh">
-        <Text fontSize="3xl" mb="3rem">검색결과 [{restaurantData.length}]</Text>
+        <Text fontSize="3xl" mb="3rem" ml="10%" fontWeight="bold">검색결과: </Text>
         <Flex h="100vh">
           {(page != 1) &&
             <IconButton
@@ -39,7 +38,7 @@ export default function ResultPage() {
           <Spacer />
           {(restaurantData.length >= 12) &&
             <IconButton
-            onClick={() => { console.log(page); console.log(query); setPage(page+1)}}
+            onClick={() => { setPage(page+1)}}
               icon={<BsChevronCompactRight size="5rem" />}
               position="fixed"
               top="55%"

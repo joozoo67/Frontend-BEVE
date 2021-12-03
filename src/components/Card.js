@@ -10,7 +10,7 @@ export default function Card({ value }) {
 
   if (value.franchise == 0) {
       return (
-        <Box
+        <Flex
           as="button"
           variant="ghost"
           _hover="none"
@@ -18,25 +18,27 @@ export default function Card({ value }) {
           display="flex"
           flexDirection="column"
           h="100%"
-          w="90%"
+          w="100%"
           boxShadow="base"
           color="black"
           onClick={onOpen}
         >
-          <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
-          <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+          <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value} />
+          <Box  maxW="100%" maxH="75%" w="100%" h="75%">
+            <Image src={`/img_res/${value.name}/1.png`} objectFit="fill"  maxW="100%" maxH="90%" w="100%" h="90%" />
+          </Box>
           <Box m={2} textAlign="left">
             <Text color="green" fontWeight="bolder">{value.name}</Text>
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Box>
+        </Flex>
       );
   }
 
   else {
       return (
-        <Box
+        <Flex
           as="button"
           variant="ghost"
           _hover="none"
@@ -44,20 +46,20 @@ export default function Card({ value }) {
           display="flex"
           flexDirection="column"
           h="100%"
-          w="90%"
+          w="100%"
           boxShadow="base"
           color="black"
           onClick={onOpen}
         >
           <DetailedShop onOpen={onOpen} isOpen={isOpen} onClose={onClose} value={value}/>
-          <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw" />
+          <Image src={`/img_res/` + tmp_t[0] + `/1.png`} objectFit="fill" maxW="100%" maxH="70%" w="100%" h="70%" />
 
           <Box m={2} textAlign="left">
             <Text color="green" fontWeight="bolder">{value.name}</Text>
             <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
           <Text fontSize="0.8rem">{value.location.address}</Text>
           </Box>
-        </Box>
+        </Flex>
       );
   }
 }
