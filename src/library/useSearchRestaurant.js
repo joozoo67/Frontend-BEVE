@@ -23,13 +23,13 @@ export default function useSearchRestaurants() {
         console.log(error);
       }).then(response => {
         setIsLoading(false);
-       setRestaurantData(response.data)
+        setRestaurantData(response.data);
       })
     };
     
     fetchData();
 
-  }, [query]);
+  }, [query, page]);
 
   return { isLoading, isError };
 }
