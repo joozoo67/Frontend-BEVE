@@ -18,7 +18,7 @@ export default function VegetarianStages() {
       px={{ base: "3%", md: "7%" }}
       pd="2%"
     >
-      <Box ml="2rem" bgColor="green" width="70%" h="2px" />
+      <Box ml="5rem" bgColor="green" width="80%" h="2px" />
       <Text color="#3E603B" fontSize="3rem" fontWeight="bold" mt="3rem">
         채식주의 단계?
       </Text>
