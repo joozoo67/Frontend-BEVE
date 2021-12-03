@@ -12,8 +12,9 @@ import { AiOutlineLeft } from "react-icons/ai";
 import { BsChevronCompactRight } from "react-icons/bs";
 import {  VscCircleOutline,VscCircleFilled } from "react-icons/vsc";
 export default function DetailedShop() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [count, setCount] = useState(0);
+    const { isOpen, onOpen, onClose } = useDisclosure()
+ 
+  const [count, soxetCount] = useState(0);
 
   const next = () => {
     if (count == 1) setCount(0);
@@ -26,7 +27,7 @@ export default function DetailedShop() {
 
   return (
     <>
-    <Button onClick={onOpen}>Open Modal</Button>
+    <Box as="button" onClick={onOpen}>Open Modal</Box>
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay color="green"/>
         <ModalContent>

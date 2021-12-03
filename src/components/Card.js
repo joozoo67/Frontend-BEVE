@@ -1,28 +1,28 @@
-import { Box, Image, Text, Flex, Spacer, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Flex, Spacer, Button,useDisclosure } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
+import DetailedShop from "./DetailedShop";
 
 export default function Card({ value }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <Button
+    <Box
+      as="button"
+      variant="ghost"
+      _hover="none"
+      _focus="none"
       display="flex"
       flexDirection="column"
-      borderRadius="15"
-      w="100%"
-      h="70%"
-      variant="filled"
-      bgColor="white"
+      h="100%"
+      w="90%"
+      boxShadow="base"
       color="black"
     >
-      <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" w="100%" h="100%" />
-
-      <Flex w="100%">
-        <Text mb={2}>{value.name}</Text>
-        <Spacer />
-        <Text justifySelf="end">{value.category}</Text>
-      </Flex>
-      <Flex w="100%">
-      <Text mb={2}>{value.location.address}</Text>
-      </Flex>
-    </Button>
+      <Image src={`/img_res/${value.name}/1.png`} objectFit="fill" maxW="15vw" maxH="13vw" w="15vw" h="13vw"/>
+      <Box m={2} textAlign="left">
+        <Text color="green" fontWeight="bolder">{value.name}</Text>
+        <Text fontSize="0.8rem" justifySelf="end">{value.category}</Text>
+      <Text fontSize="0.8rem">{value.location.address}</Text>
+      </Box>
+    </Box>
   );
 }

@@ -1,6 +1,6 @@
 /*global kakao*/
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 export default function Map() {
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Grid, Flex, Spinner, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Grid, Flex, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 
 import Card from "./Card";
@@ -13,10 +13,10 @@ export default function CardGrid() {
 
   return isLoading === true ? (<Spinner size="lg" />) :
     (restaurantData.length===0? (<Flex>검색된 결과가 없음</Flex>) : (
-    <Grid templateColumns={`repeat( ${columnNum}, 1fr)`} gap={5}>
-      {restaurantData.map((value, index) => (
-        <Card key="value.address" value={value} />
-      ))}
-    </Grid>
+      <Grid justifyItems="center" templateColumns={`repeat( ${columnNum}, 1fr)`}>
+        {restaurantData.map((value, index) => (
+          <Card key="value.address" value={value} />
+        ))}
+        </Grid>
   ));
 }

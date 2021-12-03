@@ -1,7 +1,7 @@
 import SearchForm from "../src/components/SearchForm";
 import CardGrid from "../src/components/CardGrid";
 import TopBar from "../src/components/TopBar";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text,Box } from "@chakra-ui/react";
 
 export default function ResultPage() {
   return (
@@ -14,8 +14,10 @@ export default function ResultPage() {
         iconButtonVariant="ghost"
       />
       <Flex flexDirection="column">
-        <Text>검색된 결과 [{}]</Text>
-        <CardGrid />
+        <Text>검색된 결과 [{ }]</Text>
+      
+          <CardGrid/>
+      
       </Flex>
     </>
   );
