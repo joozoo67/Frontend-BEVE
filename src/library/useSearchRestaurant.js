@@ -17,10 +17,10 @@ export default function useSearchRestaurants() {
       setIsLoading(true);
       setIsError(false);
 
-      const response = await axios.get(`https://frontend-beve.vercel.app/api/posts?area=${query.area}&stage=${query.stage}&type=${query.type}&inputText=${query.inputText}&page=${page}`)
+      const response = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
         .catch(error => {
         setIsError(true);
-         console.log(error.response.data);
+        console.log(error.response.data);
       }).then(response => {
         setIsLoading(false);
         setRestaurantData(response.data);
