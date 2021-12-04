@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Text, FormControl, Button } from "@chakra-ui/react";
 
-
 export default function FilterTypeBox({
   type,
   options,
