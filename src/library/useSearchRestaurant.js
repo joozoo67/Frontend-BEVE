@@ -17,7 +17,7 @@ export default function useSearchRestaurants() {
       setIsLoading(true);
       setIsError(false);
 
-      const response = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
+      const response = await axios.get(`/api/posts?area=${query.area}&stage=${query.stage}&type=${query.type}&inputText=${query.inputText}&page=${page}`)
         .catch(error => {
         setIsError(true);
         console.log(error.response.data);
