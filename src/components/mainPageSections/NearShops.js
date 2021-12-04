@@ -5,7 +5,7 @@ import Card from "../Card";
 import axios from "axios";
 
 export default function NearShops({ useLoc, isSeoul, usePos }) {
-  console.log(useLoc.city);  //useLoc.city=구 useLoc.address=주소 isSeoul이 1이면 서울
+    //useLoc.city=구 useLoc.address=주소 isSeoul이 1이면 서울
   
   const [isLoading, setIsLoading] = useState(null);
   const [isError, setIsError] = useState(null);
@@ -22,31 +22,9 @@ export default function NearShops({ useLoc, isSeoul, usePos }) {
     else setCount(count - 1);
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setIsLoading(true);
-  //     setIsError(false);
-      
-  //     const res = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
-  //       .catch(error => {
-  //         setIsError(true);
-  //         console.log(error);
-  //       }).then((response) => {
-  //         setIsLoading(false);
-  //         setNearShop(response.data);
-  //         console.log(response.data);
-  //       });
-  //   };
-
-  //   fetchData();
-  //   console.log("nearShop");
-  //   console.log(nearShop);
-
-  // }, [useLoc]);
-
   return (
   <Box >
-      <Text fontSize="2xl" m={1} color="lightbeige">
+    <Text fontSize="2xl" m={1} color="lightbeige">
             현 위치 : {useLoc.address} 
     </Text>  
   </Box>);
