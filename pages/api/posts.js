@@ -44,7 +44,6 @@ export default async function handler(req, res) {
       dict_input = { $text : { $search : inputText_query_l } };
   }
   // { $text : { $search : "java coffee" } 형식
-  console.log(dict_input);
 
   dict["$and"] = [ dict_area, dict_type, dict_stage, dict_input ];
 
@@ -63,7 +62,7 @@ export default async function handler(req, res) {
     .toArray();
 
   const datav = data.slice(start, end);
-  // console.log(datav);
+
   res.json(datav);
 
   return <div>datav</div>;
