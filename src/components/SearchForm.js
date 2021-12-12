@@ -42,6 +42,11 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   const onSubmit = (e) => {
     if (query.area === undefined && query.stage === undefined && query.type === undefined && inputText.length === 0) showToast();
     else {
+      setFilter({
+        area: [],
+        stage: [],
+        type: [],
+      })
       console.log(query);
       setPage(1);
       router.push({ 
