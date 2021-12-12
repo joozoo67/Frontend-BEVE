@@ -45,7 +45,7 @@ export default function VegetarianStages() {
           <Text>(Vegan)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="1" rowEnd="1">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
 
         <GridItem colStart="0" colEnd="0" rowStart="2" rowEnd="2">
@@ -53,10 +53,10 @@ export default function VegetarianStages() {
           <Text>(Lacto vegetarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="2" rowEnd="2">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="2" rowEnd="2">
-          <DairyIcon size="1.5rem" color="#AABACC" />
+          <DairyIcon  color="#AABACC" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="3" rowEnd="3">
@@ -64,10 +64,10 @@ export default function VegetarianStages() {
           <Text>(Ovo vegetarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="3" rowEnd="3">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="3" rowEnd="3">
-          <EggIcon size="1.5rem" color="#EAAD5A" />
+          <EggIcon  color="#EAAD5A" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="4" rowEnd="4">
@@ -75,13 +75,13 @@ export default function VegetarianStages() {
           <Text>(Lacto-ovo vegetarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="4" rowEnd="4">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="4" rowEnd="4">
-          <DairyIcon size="1.5rem" color="#AABACC" />
+          <DairyIcon  color="#AABACC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="4" rowEnd="4">
-          <EggIcon size="1.5rem" color="#EAAD5A" />
+          <EggIcon  color="#EAAD5A" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="5" rowEnd="5">
@@ -89,16 +89,16 @@ export default function VegetarianStages() {
           <Text>(Pesco-vegetarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="5" rowEnd="5">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="5" rowEnd="5">
-          <DairyIcon size="1.5rem" color="#AABACC" />
+          <DairyIcon  color="#AABACC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="5" rowEnd="5">
-          <EggIcon size="1.5rem" color="#EAAD5A" />
+          <EggIcon  color="#EAAD5A" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="5" rowEnd="5">
-          <FishIcon size="1.5rem" color="#6F7985" />
+          <FishIcon  color="#6F7985" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="6" rowEnd="6">
@@ -106,19 +106,19 @@ export default function VegetarianStages() {
           <Text>(Pollo-vegetarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="6" rowEnd="6">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="6" rowEnd="6">
-          <DairyIcon size="1.5rem" color="#AABACC" />
+          <DairyIcon  color="#AABACC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="6" rowEnd="6">
-          <EggIcon size="1.5rem" color="#EAAD5A" />
+          <EggIcon  color="#EAAD5A" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="6" rowEnd="6">
-          <FishIcon size="1.5rem" color="#6F7985" />
+          <FishIcon  color="#6F7985" />
         </GridItem>
         <GridItem colStart="6" colEnd="6" rowStart="6" rowEnd="6">
-          <PoultryIcon size="1.5rem" color="#BD7576" />
+          <PoultryIcon  color="#BD7576" />
         </GridItem>
 
         <GridItem colStart="1" colEnd="1" rowStart="7" rowEnd="7">
@@ -126,22 +126,22 @@ export default function VegetarianStages() {
           <Text>(Flexitarian)</Text>
         </GridItem>
         <GridItem colStart="2" colEnd="2" rowStart="7" rowEnd="7">
-          <VegetableIcon size="1.5rem" color="#A8B293" />
+          <VegetableIcon  color="#A8B293" />
         </GridItem>
         <GridItem colStart="3" colEnd="3" rowStart="7" rowEnd="7">
-          <DairyIcon size="1.5rem" color="#AABACC" />
+          <DairyIcon  color="#AABACC" />
         </GridItem>
         <GridItem colStart="4" colEnd="4" rowStart="7" rowEnd="7">
-          <EggIcon size="1.5rem" color="#EAAD5A" />
+          <EggIcon  color="#EAAD5A" />
         </GridItem>
         <GridItem colStart="5" colEnd="5" rowStart="7" rowEnd="7">
-          <FishIcon size="1.5rem" color="#6F7985" />
+          <FishIcon  color="#6F7985" />
         </GridItem>
         <GridItem colStart="6" colEnd="6" rowStart="7" rowEnd="7">
-          <PoultryIcon size="1.5rem" color="#BD7576" />
+          <PoultryIcon  color="#BD7576" />
         </GridItem>
         <GridItem colStart="7" colEnd="7" rowStart="7" rowEnd="7">
-          <MeatIcon size="1.5rem" color="#DF8053" />
+          <MeatIcon  color="#DF8053" />
         </GridItem>
       </Grid>
     </Flex>
