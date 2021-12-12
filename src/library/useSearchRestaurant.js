@@ -26,8 +26,6 @@ export default function useSearchRestaurants() {
       }).then(response => {
         setIsLoading(false);
         setRestaurantData(response.data);
-        setInputText(null);
-        setFilter({});
       })
     };
     
