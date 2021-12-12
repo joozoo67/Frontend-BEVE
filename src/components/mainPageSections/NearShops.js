@@ -22,28 +22,6 @@ export default function NearShops({ useLoc, isSeoul, usePos }) {
     else setCount(count - 1);
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setIsLoading(true);
-  //     setIsError(false);
-      
-  //     const res = await axios.get(`/api/posts?area=${useLoc.city}&stage=&type=&inputText=&page=`)
-  //       .catch(error => {
-  //         setIsError(true);
-  //         console.log(error);
-  //       }).then((response) => {
-  //         setIsLoading(false);
-  //         setNearShop(response.data);
-  //         console.log(response.data);
-  //       });
-  //   };
-
-  //   fetchData();
-  //   console.log("nearShop");
-  //   console.log(nearShop);
-
-  // }, [useLoc]);
-
   return (
   <Box >
       <Text fontSize="2xl" m={1} color="lightbeige">
