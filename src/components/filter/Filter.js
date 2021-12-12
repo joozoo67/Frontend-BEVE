@@ -53,10 +53,7 @@ export default function Filter({ isOpen, onClose, showToast }) {
   return (
     <>
       <Modal
-        isOpen={() => {
-          clearFilter();
-          isOpen();
-        }}
+        isOpen={isOpen}
         onClose={() => {
           onClose();
           clearFilter();

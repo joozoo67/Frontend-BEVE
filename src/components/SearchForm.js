@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
 
 import Filter from "./filter/Filter";
-import { queryState, inputState, pageState} from "../states";
+import { queryState, inputState, pageState, filterState} from "../states";
 
 export default function SearchForm({ width, marginTop, inputVariant }) {
   const [inputValue, setInputValue] = useState("");
@@ -27,6 +27,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
   const query = useRecoilValue(queryState);
   const setPage = useSetRecoilState(pageState);
   const [inputText, setInputText] = useRecoilState(inputState);
+  const [filter, setFilter] = useRecoilState(filterState);
 
   const showToast = () => toast({
     title: "입력된 검색어가 없습니다.",
@@ -91,7 +92,10 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
               variant="ghost"
               color="green"
               mr="10px"
-              onClick={onOpen}
+              onClick={() => {
+                onOpen();
+                setFilter({});
+              }}
             />
           </InputRightElement>
         </InputGroup>
