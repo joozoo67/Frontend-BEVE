@@ -1,5 +1,5 @@
-import { Box, Text, Flex, Spacer, Image, useDisclosure } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import { Box, Text, Image, useDisclosure } from "@chakra-ui/react";
+import React from "react";
 import DetailedShop from "./DetailedShop";
 import noimage from "../../public/img/noimage.jpg"
 
