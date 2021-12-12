@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilValue, useRecoilState } from "recoil";
 import axios from "axios";
 
-import { pageState, queryState, restaurantDataState } from "../states";
+import { filterState, pageState, queryState, restaurantDataState, inputState } from "../states";
 
 export default function useSearchRestaurants() {
   const [isLoading, setIsLoading] = useState(null);
@@ -11,6 +11,8 @@ export default function useSearchRestaurants() {
   const query = useRecoilValue(queryState);
   const page = useRecoilValue(pageState);
   const [restaurantData, setRestaurantData] = useRecoilState(restaurantDataState);
+  const [filter, setFilter] = useRecoilState(filterState);
+  const [inputText, setInputText] = useRecoilState(inputState);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +26,8 @@ export default function useSearchRestaurants() {
       }).then(response => {
         setIsLoading(false);
         setRestaurantData(response.data);
+        setInputText(null);
+        setFilter({});
       })
     };
     
