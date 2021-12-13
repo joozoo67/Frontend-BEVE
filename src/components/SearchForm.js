@@ -47,7 +47,6 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
         stage: [],
         type: [],
       })
-      setInputText(null);
       setPage(1);
       router.push({ 
         pathname: "/ResultPage",
@@ -100,6 +99,7 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
               onClick={() => {
                 onOpen();
                 setFilter({});
+                setInputText(null);
               }}
             />
           </InputRightElement>
