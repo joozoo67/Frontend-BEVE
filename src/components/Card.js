@@ -4,7 +4,6 @@ import DetailedShop from "./DetailedShop";
 import noimage from "../../public/img/noimage.jpg"
 
 export default function Card({ value }) {
-  // console.log(value);
   const { isOpen, onOpen, onClose } = useDisclosure()
   const tmp = value.name;
   const tmp_t = tmp.split(" (");
