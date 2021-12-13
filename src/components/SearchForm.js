@@ -99,7 +99,8 @@ export default function SearchForm({ width, marginTop, inputVariant }) {
               onClick={() => {
                 onOpen();
                 setFilter({});
-                setInputText(null);
+                setInputText("");
+                setInputValue("");
               }}
             />
           </InputRightElement>
